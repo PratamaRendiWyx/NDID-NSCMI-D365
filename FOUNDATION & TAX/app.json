@@ -1,0 +1,32 @@
+{
+  "id": "87ea90df-b480-4d4e-bd78-a906cd3c5f6a",
+  "name": "FOUNDATION AND TAX",
+  "publisher": "NTT DATA INDONESIA",
+  "version": "25.26.6.2",
+  "brief": "",
+  "description": "FOUNDATION AND TAX",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "24.0.0.0",
+  "idRanges": [
+    {
+      "from": 50100,
+      "to": 50299
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": false,
+    "includeSourceInSymbolFile": false
+  },
+  "runtime": "13.0",
+  "features": [
+    "NoImplicitWith"
+  ]
+}

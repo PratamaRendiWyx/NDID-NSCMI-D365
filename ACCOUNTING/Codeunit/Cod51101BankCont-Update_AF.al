@@ -1,0 +1,239 @@
+codeunit 51101 BankContUpdate_AF
+{
+    Permissions = tabledata Contact = rimd;
+
+    trigger OnRun()
+    begin
+    end;
+
+    var
+        RMSetup: Record "Marketing Setup";
+        BankContactUpdateCategoryTxt: Label 'Bank Contact Orphaned Links', Locked = true;
+        BankContactUpdateTelemetryMsg: Label 'Contact does not exist. The contact business relation which points to it has been deleted', Locked = true;
+
+    procedure OnInsert(var BankAcc: Record "Bank Account")
+    begin
+        RMSetup.Get();
+        if RMSetup."Bus. Rel. Code for Bank Accs." = '' then
+            exit;
+
+        InsertNewContact(BankAcc, true);
+    end;
+
+    procedure OnModify(var BankAcc: Record "Bank Account")
+    var
+        Cont: Record Contact;
+        OldCont: Record Contact;
+        ContBusRel: Record "Contact Business Relation";
+        ContNo: Code[20];
+        NoSeries: Code[20];
+        SalespersonCode: Code[20];
+        IsHandled: Boolean;
+    begin
+        IsHandled := false;
+        OnBeforeOnModify(BankAcc, IsHandled);
+        if IsHandled then
+            exit;
+
+        ContBusRel.SetCurrentKey("Link to Table", "No.");
+        ContBusRel.SetRange("Link to Table", ContBusRel."Link to Table"::"Bank Account");
+        ContBusRel.SetRange("No.", BankAcc."No.");
+        if not ContBusRel.FindFirst() then
+            exit;
+        if not Cont.Get(ContBusRel."Contact No.") then begin
+            ContBusRel.Delete();
+            Session.LogMessage('0000B38', BankContactUpdateTelemetryMsg, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', BankContactUpdateCategoryTxt);
+            exit;
+        end;
+        OldCont := Cont;
+
+        ContNo := Cont."No.";
+        NoSeries := Cont."No. Series";
+        SalespersonCode := Cont."Salesperson Code";
+        Cont.Validate("E-Mail", BankAcc."E-Mail");
+        Cont.TransferFields(BankAcc);
+        OnAfterTransferFieldsFromBankAccToCont(Cont, BankAcc);
+        Cont."No." := ContNo;
+        Cont."No. Series" := NoSeries;
+        Cont."Salesperson Code" := SalespersonCode;
+        Cont.Validate(Name);
+        Cont.DoModify(OldCont);
+        IsHandled := false;
+        OnOnModifyOnBeforeContModify(Cont, BankAcc, IsHandled);
+        if not IsHandled then
+            Cont.Modify(true);
+
+        BankAcc.Get(BankAcc."No.");
+    end;
+
+    procedure InsertNewContactPerson(var BankAccount: Record "Bank Account"; LocalCall: Boolean)
+    var
+        Cont: Record Contact;
+        ContComp: Record Contact;
+        ContBusRel: Record "Contact Business Relation";
+    begin
+        if not LocalCall then begin
+            RMSetup.Get();
+            RMSetup.TestField("Bus. Rel. Code for Bank Accs.");
+        end;
+
+        ContBusRel.SetCurrentKey("Link to Table", "No.");
+        ContBusRel.SetRange("Link to Table", ContBusRel."Link to Table"::"Bank Account");
+        ContBusRel.SetRange("No.", BankAccount."No.");
+        if ContBusRel.FindFirst() then
+            if ContComp.Get(ContBusRel."Contact No.") then begin
+                Cont.Init();
+                Cont."No." := '';
+                OnInsertNewContactPersonOnBeforeContactInsert(Cont, BankAccount);
+                Cont.Insert(true);
+                Cont."Company No." := ContComp."No.";
+                Cont.Type := Cont.Type::Person;
+                Cont.Validate(Cont.Name, BankAccount.Contact2);
+                Cont.InheritCompanyToPersonData(ContComp);
+                Cont.UpdateBusinessRelation();
+                OnInsertNewContactPersonOnBeforeContactModify(Cont, BankAccount);
+                Cont.Modify(true);
+                BankAccount."Primary Contact No." := Cont."No.";
+            end
+    end;
+
+    procedure OnDelete(var BankAcc: Record "Bank Account")
+    var
+        ContBusRel: Record "Contact Business Relation";
+    begin
+        ContBusRel.SetCurrentKey("Link to Table", "No.");
+        ContBusRel.SetRange("Link to Table", ContBusRel."Link to Table"::"Bank Account");
+        ContBusRel.SetRange("No.", BankAcc."No.");
+        ContBusRel.DeleteAll(true);
+    end;
+
+    procedure InsertNewContact(var BankAcc: Record "Bank Account"; LocalCall: Boolean)
+    var
+        Cont: Record Contact;
+        ContBusRel: Record "Contact Business Relation";
+        IsHandled: Boolean;
+    begin
+        IsHandled := false;
+        OnBeforeInsertNewContact(BankAcc, LocalCall, IsHandled);
+        if IsHandled then
+            exit;
+
+        if not LocalCall then begin
+            RMSetup.Get();
+            RMSetup.TestField("Bus. Rel. Code for Bank Accs.");
+        end;
+
+        InitContactFromBankAccount(Cont, BankAcc);
+        OnBeforeContactInsert(Cont, BankAcc);
+        Cont.Insert(true);
+
+        ContBusRel.Init();
+        ContBusRel."Contact No." := Cont."No.";
+        ContBusRel."Business Relation Code" := RMSetup."Bus. Rel. Code for Bank Accs.";
+        ContBusRel."Link to Table" := ContBusRel."Link to Table"::"Bank Account";
+        ContBusRel."No." := BankAcc."No.";
+        ContBusRel.Insert(true);
+    end;
+
+    local procedure InitContactFromBankAccount(var Contact: Record Contact; BankAcc: Record "Bank Account")
+    var
+        NoSeries: Codeunit "No. Series";
+#if not CLEAN24
+#pragma warning disable AL0432
+        NoSeriesManagement: Codeunit "No. Series";
+#pragma warning restore AL0432
+#endif
+        IsHandled: Boolean;
+    begin
+        IsHandled := false;
+        OnBeforeInitContactFromBankAccount(Contact, BankAcc, RMSetup, IsHandled);
+        if IsHandled then
+            exit;
+
+        Contact.Init();
+        Contact.TransferFields(BankAcc);
+        Contact.Validate(Contact.Name);
+        Contact.Validate(Contact."E-Mail");
+        IsHandled := false;
+        OnInitContactFromBankAccountOnBeforeAssignNo(Contact, BankAcc, RMSetup, IsHandled);
+        if not IsHandled then begin
+            Contact."No." := '';
+            Contact."No. Series" := '';
+            RMSetup.TestField("Contact Nos.");
+#if not CLEAN24
+            // NoSeriesManagement.RaiseObsoleteOnBeforeInitSeries(RMSetup."Contact Nos.", '', 0D, Contact."No.", Contact."No. Series", IsHandled);
+            if not IsHandled then begin
+#endif
+                Contact."No. Series" := RMSetup."Contact Nos.";
+                Contact."No." := NoSeries.GetNextNo(Contact."No. Series");
+#if not CLEAN24
+                // NoSeriesManagement.RaiseObsoleteOnAfterInitSeries(Contact."No. Series", RMSetup."Contact Nos.", 0D, Contact."No.");
+            end;
+#endif
+        end;
+        Contact.Type := Contact.Type::Company;
+        Contact.TypeChange();
+        Contact.SetSkipDefault();
+    end;
+
+    procedure ContactNameIsBlank(BankAccountNo: Code[20]): Boolean
+    var
+        Contact: Record Contact;
+        ContactBusinessRelation: Record "Contact Business Relation";
+    begin
+        ContactBusinessRelation.SetCurrentKey("Link to Table", ContactBusinessRelation."No.");
+        ContactBusinessRelation.SetRange("Link to Table", ContactBusinessRelation."Link to Table"::"Bank Account");
+        ContactBusinessRelation.SetRange("No.", BankAccountNo);
+        if not ContactBusinessRelation.FindFirst() then
+            exit(false);
+        if not Contact.Get(ContactBusinessRelation."Contact No.") then
+            exit(true);
+        exit(Contact.Name = '');
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnAfterTransferFieldsFromBankAccToCont(var Contact: Record Contact; BankAccount: Record "Bank Account")
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeInitContactFromBankAccount(var Contact: Record Contact; BankAcc: Record "Bank Account"; RMSetup: Record "Marketing Setup"; var IsHandled: Boolean)
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnInsertNewContactPersonOnBeforeContactInsert(var Contact: Record Contact; BankAccount: Record "Bank Account")
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeInsertNewContact(var BankAccount: Record "Bank Account"; LocalCall: Boolean; var IsHandled: Boolean)
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeContactInsert(var Contact: Record Contact; BankAccount: Record "Bank Account")
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnInitContactFromBankAccountOnBeforeAssignNo(var Contact: Record Contact; BankAccount: Record "Bank Account"; MarketingSetup: Record "Marketing Setup"; var IsHandled: Boolean)
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnInsertNewContactPersonOnBeforeContactModify(var Contact: Record Contact; BankAccount: Record "Bank Account")
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnOnModifyOnBeforeContModify(var Contact: Record Contact; BankAccount: Record "Bank Account"; var IsHandled: Boolean)
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeOnModify(var BankAccount: Record "Bank Account"; var IsHandled: Boolean)
+    begin
+    end;
+}
+

@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="No_">
+          <DataField>No_</DataField>
+        </Field>
+        <Field Name="Prepayment">
+          <DataField>Prepayment</DataField>
+        </Field>
+        <Field Name="Application">
+          <DataField>Application</DataField>
+        </Field>
+        <Field Name="Buy_from_Vendor_No_">
+          <DataField>Buy_from_Vendor_No_</DataField>
+        </Field>
+        <Field Name="FaxNoVendor">
+          <DataField>FaxNoVendor</DataField>
+        </Field>
+        <Field Name="VendorAddress">
+          <DataField>VendorAddress</DataField>
+        </Field>
+        <Field Name="VendorAddress2">
+          <DataField>VendorAddress2</DataField>
+        </Field>
+        <Field Name="Vendor_Name">
+          <DataField>Vendor_Name</DataField>
+        </Field>
+        <Field Name="Buy_from_Contact">
+          <DataField>Buy_from_Contact</DataField>
+        </Field>
+        <Field Name="TotalLineAmount">
+          <DataField>TotalLineAmount</DataField>
+        </Field>
+        <Field Name="TotalLineAmountFormat">
+          <DataField>TotalLineAmountFormat</DataField>
+        </Field>
+        <Field Name="TotalLineAmountDisc">
+          <DataField>TotalLineAmountDisc</DataField>
+        </Field>
+        <Field Name="TotalLineAmountDiscFormat">
+          <DataField>TotalLineAmountDiscFormat</DataField>
+        </Field>
+        <Field Name="TotalWHTAMount">
+          <DataField>TotalWHTAMount</DataField>
+        </Field>
+        <Field Name="TotalWHTAMountFormat">
+          <DataField>TotalWHTAMountFormat</DataField>
+        </Field>
+        <Field Name="WHTPercentage">
+          <DataField>WHTPercentage</DataField>
+        </Field>
+        <Field Name="WHTPercentageFormat">
+          <DataField>WHTPercentageFormat</DataField>
+        </Field>
+        <Field Name="Terbilang">
+          <DataField>Terbilang</DataField>
+        </Field>
+        <Field Name="Vendor_Shipment_No_">
+          <DataField>Vendor_Shipment_No_</DataField>
+        </Field>
+        <Field Name="Quote_No_">
+          <DataField>Quote_No_</DataField>
+        </Field>
+        <Field Name="Document_Date">
+          <DataField>Document_Date</DataField>
+        </Field>
+        <Field Name="Posting_Date">
+          <DataField>Posting_Date</DataField>
+        </Field>
+        <Field Name="Order_Date">
+          <DataField>Order_Date</DataField>
+        </Field>
+        <Field Name="WorkDate">
+          <DataField>WorkDate</DataField>
+        </Field>
+        <Field Name="LogoCompany">
+          <DataField>LogoCompany</DataField>
+        </Field>
+        <Field Name="Status">
+          <DataField>Status</DataField>
+        </Field>
+        <Field Name="TotalAmount">
+          <DataField>TotalAmount</DataField>
+        </Field>
+        <Field Name="TotalAmountFormat">
+          <DataField>TotalAmountFormat</DataField>
+        </Field>
+        <Field Name="TotalAmountWithVat">
+          <DataField>TotalAmountWithVat</DataField>
+        </Field>
+        <Field Name="TotalAmountWithVatFormat">
+          <DataField>TotalAmountWithVatFormat</DataField>
+        </Field>
+        <Field Name="TotalVatAMount">
+          <DataField>TotalVatAMount</DataField>
+        </Field>
+        <Field Name="TotalVatAMountFormat">
+          <DataField>TotalVatAMountFormat</DataField>
+        </Field>
+        <Field Name="Vatlabel">
+          <DataField>Vatlabel</DataField>
+        </Field>
+        <Field Name="Currency_Code">
+          <DataField>Currency_Code</DataField>
+        </Field>
+        <Field Name="paymentterms_Desc">
+          <DataField>paymentterms_Desc</DataField>
+        </Field>
+        <Field Name="ShipVia">
+          <DataField>ShipVia</DataField>
+        </Field>
+        <Field Name="FOB_Point">
+          <DataField>FOB_Point</DataField>
+        </Field>
+        <Field Name="LoadingPort">
+          <DataField>LoadingPort</DataField>
+        </Field>
+        <Field Name="DestinationPort">
+          <DataField>DestinationPort</DataField>
+        </Field>
+        <Field Name="Requested_Receipt_Date0">
+          <DataField>Requested_Receipt_Date0</DataField>
+        </Field>
+        <Field Name="Shortcut_Dimension_1_Code">
+          <DataField>Shortcut_Dimension_1_Code</DataField>
+        </Field>
+        <Field Name="Purpose">
+          <DataField>Purpose</DataField>
+        </Field>
+        <Field Name="Reason">
+          <DataField>Reason</DataField>
+        </Field>
+        <Field Name="Notes">
+          <DataField>Notes</DataField>
+        </Field>
+        <Field Name="Same_Price">
+          <DataField>Same_Price</DataField>
+        </Field>
+        <Field Name="Order_Type">
+          <DataField>Order_Type</DataField>
+        </Field>
+        <Field Name="GM_Approval_Only">
+          <DataField>GM_Approval_Only</DataField>
+        </Field>
+        <Field Name="IsRepeatOrder">
+          <DataField>IsRepeatOrder</DataField>
+        </Field>
+        <Field Name="Acknowledged_by">
+          <DataField>Acknowledged_by</DataField>
+        </Field>
+        <Field Name="Approved_By">
+          <DataField>Approved_By</DataField>
+        </Field>
+        <Field Name="Checked_By">
+          <DataField>Checked_By</DataField>
+        </Field>
+        <Field Name="Issued_By">
+          <DataField>Issued_By</DataField>
+        </Field>
+        <Field Name="Issued_ByName">
+          <DataField>Issued_ByName</DataField>
+        </Field>
+        <Field Name="Acc_Mgr_Name">
+          <DataField>Acc_Mgr_Name</DataField>
+        </Field>
+        <Field Name="Approved_By_2">
+          <DataField>Approved_By_2</DataField>
+        </Field>
+        <Field Name="MaxLine">
+          <DataField>MaxLine</DataField>
+        </Field>
+        <Field Name="Rev">
+          <DataField>Rev</DataField>
+        </Field>
+        <Field Name="ApprovalSeq1">
+          <DataField>ApprovalSeq1</DataField>
+        </Field>
+        <Field Name="ApprovalSeq2">
+          <DataField>ApprovalSeq2</DataField>
+        </Field>
+        <Field Name="ApprovalSeq3">
+          <DataField>ApprovalSeq3</DataField>
+        </Field>
+        <Field Name="ApprovalSeq4">
+          <DataField>ApprovalSeq4</DataField>
+        </Field>
+        <Field Name="preparebyApproval">
+          <DataField>preparebyApproval</DataField>
+        </Field>
+        <Field Name="Inv__Discount_Amount">
+          <DataField>Inv__Discount_Amount</DataField>
+        </Field>
+        <Field Name="Inv__Discount_AmountFormat">
+          <DataField>Inv__Discount_AmountFormat</DataField>
+        </Field>
+        <Field Name="LineCount">
+          <DataField>LineCount</DataField>
+        </Field>
+        <Field Name="LineCountInc">
+          <DataField>LineCountInc</DataField>
+        </Field>
+        <Field Name="LineCount_f1">
+          <DataField>LineCount_f1</DataField>
+        </Field>
+        <Field Name="ItemNo_">
+          <DataField>ItemNo_</DataField>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+        </Field>
+        <Field Name="Line_Discount__">
+          <DataField>Line_Discount__</DataField>
+        </Field>
+        <Field Name="Line_Discount__Format">
+          <DataField>Line_Discount__Format</DataField>
+        </Field>
+        <Field Name="Line_Discount_Amount">
+          <DataField>Line_Discount_Amount</DataField>
+        </Field>
+        <Field Name="Line_Discount_AmountFormat">
+          <DataField>Line_Discount_AmountFormat</DataField>
+        </Field>
+        <Field Name="Quantity">
+          <DataField>Quantity</DataField>
+        </Field>
+        <Field Name="QuantityFormat">
+          <DataField>QuantityFormat</DataField>
+        </Field>
+        <Field Name="Unit_of_Measure_Code">
+          <DataField>Unit_of_Measure_Code</DataField>
+        </Field>
+        <Field Name="Line_Amount">
+          <DataField>Line_Amount</DataField>
+        </Field>
+        <Field Name="Line_AmountFormat">
+          <DataField>Line_AmountFormat</DataField>
+        </Field>
+        <Field Name="Unit_Cost__LCY_">
+          <DataField>Unit_Cost__LCY_</DataField>
+        </Field>
+        <Field Name="Unit_Cost__LCY_Format">
+          <DataField>Unit_Cost__LCY_Format</DataField>
+        </Field>
+        <Field Name="Direct_Unit_Cost">
+          <DataField>Direct_Unit_Cost</DataField>
+        </Field>
+        <Field Name="Direct_Unit_CostFormat">
+          <DataField>Direct_Unit_CostFormat</DataField>
+        </Field>
+        <Field Name="Requested_Receipt_Date">
+          <DataField>Requested_Receipt_Date</DataField>
+        </Field>
+        <Field Name="Remarks">
+          <DataField>Remarks</DataField>
+        </Field>
+        <Field Name="Integer_number">
+          <DataField>Integer_number</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

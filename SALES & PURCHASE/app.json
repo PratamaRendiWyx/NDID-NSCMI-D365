@@ -1,0 +1,57 @@
+{
+  "id": "ecbc9e47-5e4e-41df-99e1-977f9c9fb93b",
+  "name": "SALES & PURCHASE ADDONS",
+  "publisher": "NTT DATA INDONESIA",
+  "version": "26.27.2.4",
+  "brief": "",
+  "description": "SALES & PURCHASE ADDONS",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [
+ {
+      "id": "87ea90df-b480-4d4e-bd78-a906cd3c5f6a",
+      "name": "FOUNDATION AND TAX",
+      "publisher": "NTT DATA INDONESIA",
+      "version": "25.27.2.1"
+    },
+    {
+      "id": "1dbef935-bd2a-419d-9fa6-662b194f556f",
+      "name": "WAREHOUSE & EXIM ADDONS",
+      "publisher": "NTT DATA INDONESIA",
+      "version": "26.27.2.2"
+    },
+    {
+      "id": "9be03f45-2021-4aba-9aa7-4678fe0a7291",
+      "name": "ACCOUNTING ADDONS",
+      "publisher": "NTT DATA INDONESIA",
+      "version": "26.27.2.3"
+    },
+    {
+      "id": "e2b00843-a25d-4e2e-b754-2bf5b428d15e",
+      "name": "PRODUCTION & QUALITY CONTROL",
+      "publisher": "NTT DATA INDONESIA",
+      "version": "26.27.2.4"
+    }
+  ],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "24.0.0.0",
+  "idRanges": [
+    {
+      "from": 50300,
+      "to": 50499
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": false,
+    "includeSourceInSymbolFile": false
+  },
+  "runtime": "13.0",
+  "features": [
+    "NoImplicitWith"
+  ]
+}

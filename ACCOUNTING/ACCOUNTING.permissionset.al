@@ -1,0 +1,50 @@
+namespace ACCOUNTING;
+
+using ACCOUNTING.ACCOUNTING;
+
+permissionset 51100 ACCOUNTING
+{
+    Assignable = true;
+    Permissions = tabledata "Asset Group" = RIMD,
+        tabledata "Asset Type" = RIMD,
+        tabledata "Inventory Aging" = RIMD,
+        tabledata "Inventory Aging Temp FT" = RIMD,
+        tabledata "Log Entries Invt. Aging" = RIMD,
+        table "Asset Group" = X,
+        table "Asset Type" = X,
+        table "Inventory Aging" = X,
+        table "Inventory Aging Temp FT" = X,
+        table "Log Entries Invt. Aging" = X,
+        report "Cash Voucher (Posted)" = X,
+        report "Cash Voucher (Posted) Type 2" = X,
+        report "Cash Voucher (Preview)" = X,
+        report "Cash Voucher (Preview) Type 2" = X,
+        report "Inventory Aging Detail" = X,
+        report "Inventory Aging Detail Old" = X,
+        report "Inventory Aging Detail Stag." = X,
+        report "Inventory Aging Detail V2" = X,
+        report "Payment Request (Posted)" = X,
+        report "Payment Request (Preview)" = X,
+        report "Update Data Posted Journal" = X,
+        codeunit BankContUpdate_AF = X,
+        codeunit EmployeePostingGrp_AF = X,
+        codeunit "Entry Event" = X,
+        codeunit "Inventory Aging CMB" = X,
+        codeunit "Inventory Aging FGB-1" = X,
+        codeunit "Inventory Aging FGB-2" = X,
+        codeunit "Inventory Aging FSB-1" = X,
+        codeunit "Inventory Aging FSB-2" = X,
+        codeunit "Inventory Aging Mgt." = X,
+        codeunit "Inventory Aging PMB" = X,
+        codeunit "Inventory Aging RMB-1" = X,
+        codeunit "Inventory Aging RMB-2" = X,
+        codeunit "Inventory Aging SCB-1" = X,
+        codeunit "Inventory Aging SCB-2" = X,
+        codeunit "Inventory Aging SMB" = X,
+        codeunit "Localization Center" = X,
+        codeunit "Posting Preview Handler" = X,
+        page "Asset Groups" = X,
+        page "Asset Types" = X,
+        page "Inventory Aging Details" = X,
+        page "Log Entries Inventory Aging" = X;
+}

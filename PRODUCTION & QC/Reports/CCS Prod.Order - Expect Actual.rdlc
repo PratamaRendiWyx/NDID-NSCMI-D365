@@ -1,0 +1,1036 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="Production_Order__No__Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Production_Order__No__Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Production_Order__No__Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Production_Order_DescriptionCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Production_Order_DescriptionCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Production_Order_DescriptionCaption</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="PrintDetail">
+          <DataField>PrintDetail</DataField>
+        </Field>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="TIME">
+          <DataField>TIME</DataField>
+        </Field>
+        <Field Name="CompanyInformation_Name">
+          <DataField>CompanyInformation_Name</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="Production_Order__TABLECAPTION_________ProdOrderFilter">
+          <DataField>Production_Order__TABLECAPTION_________ProdOrderFilter</DataField>
+        </Field>
+        <Field Name="ReportID">
+          <DataField>ReportID</DataField>
+        </Field>
+        <Field Name="ReportNum">
+          <DataField>ReportNum</DataField>
+        </Field>
+        <Field Name="Time_VS">
+          <DataField>Time_VS</DataField>
+        </Field>
+        <Field Name="Production_Order__No__">
+          <DataField>Production_Order__No__</DataField>
+        </Field>
+        <Field Name="Production_Order_Description">
+          <DataField>Production_Order_Description</DataField>
+        </Field>
+        <Field Name="Production_Order__Source_No__">
+          <DataField>Production_Order__Source_No__</DataField>
+        </Field>
+        <Field Name="Production_Order_Quantity">
+          <DataField>Production_Order_Quantity</DataField>
+        </Field>
+        <Field Name="Production_Order_QuantityFormat">
+          <DataField>Production_Order_QuantityFormat</DataField>
+        </Field>
+        <Field Name="Production_Order__Starting_Date_">
+          <DataField>Production_Order__Starting_Date_</DataField>
+        </Field>
+        <Field Name="Production_Order__Ending_Date_">
+          <DataField>Production_Order__Ending_Date_</DataField>
+        </Field>
+        <Field Name="Production_Order__Due_Date_">
+          <DataField>Production_Order__Due_Date_</DataField>
+        </Field>
+        <Field Name="Production_Order_Status">
+          <DataField>Production_Order_Status</DataField>
+        </Field>
+        <Field Name="Production_Order___Expected_and_Actual_Cost_DetailsCaption">
+          <DataField>Production_Order___Expected_and_Actual_Cost_DetailsCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Production_Order__Source_No__Caption">
+          <DataField>Production_Order__Source_No__Caption</DataField>
+        </Field>
+        <Field Name="Production_Order_QuantityCaption">
+          <DataField>Production_Order_QuantityCaption</DataField>
+        </Field>
+        <Field Name="Production_Order__Starting_Date_Caption">
+          <DataField>Production_Order__Starting_Date_Caption</DataField>
+        </Field>
+        <Field Name="Production_Order__Ending_Date_Caption">
+          <DataField>Production_Order__Ending_Date_Caption</DataField>
+        </Field>
+        <Field Name="Production_Order__Due_Date_Caption">
+          <DataField>Production_Order__Due_Date_Caption</DataField>
+        </Field>
+        <Field Name="Production_Order_StatusCaption">
+          <DataField>Production_Order_StatusCaption</DataField>
+        </Field>
+        <Field Name="Prod__Order_Line__Line_No__">
+          <DataField>Prod__Order_Line__Line_No__</DataField>
+        </Field>
+        <Field Name="Prod__Order_Line__Item_No__">
+          <DataField>Prod__Order_Line__Item_No__</DataField>
+        </Field>
+        <Field Name="Prod__Order_Line_Description">
+          <DataField>Prod__Order_Line_Description</DataField>
+        </Field>
+        <Field Name="Prod__Order_Line_Quantity">
+          <DataField>Prod__Order_Line_Quantity</DataField>
+        </Field>
+        <Field Name="Prod__Order_Line_QuantityFormat">
+          <DataField>Prod__Order_Line_QuantityFormat</DataField>
+        </Field>
+        <Field Name="Prod__Order_Line__Finished_Quantity_">
+          <DataField>Prod__Order_Line__Finished_Quantity_</DataField>
+        </Field>
+        <Field Name="Prod__Order_Line__Finished_Quantity_Format">
+          <DataField>Prod__Order_Line__Finished_Quantity_Format</DataField>
+        </Field>
+        <Field Name="Prod__Order_Line__Remaining_Quantity_">
+          <DataField>Prod__Order_Line__Remaining_Quantity_</DataField>
+        </Field>
+        <Field Name="Prod__Order_Line__Remaining_Quantity_Format">
+          <DataField>Prod__Order_Line__Remaining_Quantity_Format</DataField>
+        </Field>
+        <Field Name="Prod__Order_Line__Indirect_Cost___">
+          <DataField>Prod__Order_Line__Indirect_Cost___</DataField>
+        </Field>
+        <Field Name="Prod__Order_Line__Indirect_Cost___Format">
+          <DataField>Prod__Order_Line__Indirect_Cost___Format</DataField>
+        </Field>
+        <Field Name="Prod__Order_Line__Overhead_Rate_">
+          <DataField>Prod__Order_Line__Overhead_Rate_</DataField>
+        </Field>
+        <Field Name="Prod__Order_Line__Overhead_Rate_Format">
+          <DataField>Prod__Order_Line__Overhead_Rate_Format</DataField>
+        </Field>
+        <Field Name="Prod__Order_Line__Line_No__Caption">
+          <DataField>Prod__Order_Line__Line_No__Caption</DataField>
+        </Field>
+        <Field Name="Prod__Order_Line__Item_No__Caption">
+          <DataField>Prod__Order_Line__Item_No__Caption</DataField>
+        </Field>
+        <Field Name="Prod__Order_Line_DescriptionCaption">
+          <DataField>Prod__Order_Line_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Prod__Order_Line_QuantityCaption">
+          <DataField>Prod__Order_Line_QuantityCaption</DataField>
+        </Field>
+        <Field Name="Prod__Order_Line__Finished_Quantity_Caption">
+          <DataField>Prod__Order_Line__Finished_Quantity_Caption</DataField>
+        </Field>
+        <Field Name="Prod__Order_Line__Remaining_Quantity_Caption">
+          <DataField>Prod__Order_Line__Remaining_Quantity_Caption</DataField>
+        </Field>
+        <Field Name="Prod__Order_Line__Indirect_Cost___Caption">
+          <DataField>Prod__Order_Line__Indirect_Cost___Caption</DataField>
+        </Field>
+        <Field Name="Prod__Order_Line__Overhead_Rate_Caption">
+          <DataField>Prod__Order_Line__Overhead_Rate_Caption</DataField>
+        </Field>
+        <Field Name="Prod__Order_Line_Status">
+          <DataField>Prod__Order_Line_Status</DataField>
+        </Field>
+        <Field Name="Prod__Order_Line_Prod__Order_No_">
+          <DataField>Prod__Order_Line_Prod__Order_No_</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Operation_No__">
+          <DataField>Prod__Order_Routing_Line__Operation_No__</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line_Type">
+          <DataField>Prod__Order_Routing_Line_Type</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__No__">
+          <DataField>Prod__Order_Routing_Line__No__</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line_Description">
+          <DataField>Prod__Order_Routing_Line_Description</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Expected_Operation_Cost_Amt__">
+          <DataField>Prod__Order_Routing_Line__Expected_Operation_Cost_Amt__</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Expected_Operation_Cost_Amt__Format">
+          <DataField>Prod__Order_Routing_Line__Expected_Operation_Cost_Amt__Format</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Expected_Capacity_Need_">
+          <DataField>Prod__Order_Routing_Line__Expected_Capacity_Need_</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Expected_Capacity_Need_Format">
+          <DataField>Prod__Order_Routing_Line__Expected_Capacity_Need_Format</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Run_Time_">
+          <DataField>Prod__Order_Routing_Line__Run_Time_</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Run_Time_Format">
+          <DataField>Prod__Order_Routing_Line__Run_Time_Format</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Setup_Time_">
+          <DataField>Prod__Order_Routing_Line__Setup_Time_</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Setup_Time_Format">
+          <DataField>Prod__Order_Routing_Line__Setup_Time_Format</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Routing_Link_Code_">
+          <DataField>Prod__Order_Routing_Line__Routing_Link_Code_</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Starting_Date_">
+          <DataField>Prod__Order_Routing_Line__Starting_Date_</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Overhead_Rate_">
+          <DataField>Prod__Order_Routing_Line__Overhead_Rate_</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Overhead_Rate_Format">
+          <DataField>Prod__Order_Routing_Line__Overhead_Rate_Format</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Unit_Cost_per_">
+          <DataField>Prod__Order_Routing_Line__Unit_Cost_per_</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Unit_Cost_per_Format">
+          <DataField>Prod__Order_Routing_Line__Unit_Cost_per_Format</DataField>
+        </Field>
+        <Field Name="ExpSubDirCost">
+          <DataField>ExpSubDirCost</DataField>
+        </Field>
+        <Field Name="ExpSubDirCostFormat">
+          <DataField>ExpSubDirCostFormat</DataField>
+        </Field>
+        <Field Name="ExpCapDirCost">
+          <DataField>ExpCapDirCost</DataField>
+        </Field>
+        <Field Name="ExpCapDirCostFormat">
+          <DataField>ExpCapDirCostFormat</DataField>
+        </Field>
+        <Field Name="ExpCapOHDirCost">
+          <DataField>ExpCapOHDirCost</DataField>
+        </Field>
+        <Field Name="ExpCapOHDirCostFormat">
+          <DataField>ExpCapOHDirCostFormat</DataField>
+        </Field>
+        <Field Name="ActLaborCost">
+          <DataField>ActLaborCost</DataField>
+        </Field>
+        <Field Name="ActLaborCostFormat">
+          <DataField>ActLaborCostFormat</DataField>
+        </Field>
+        <Field Name="ActLaborHrs">
+          <DataField>ActLaborHrs</DataField>
+        </Field>
+        <Field Name="ActLaborHrsFormat">
+          <DataField>ActLaborHrsFormat</DataField>
+        </Field>
+        <Field Name="ActSubCost">
+          <DataField>ActSubCost</DataField>
+        </Field>
+        <Field Name="ActSubCostFormat">
+          <DataField>ActSubCostFormat</DataField>
+        </Field>
+        <Field Name="ActCapOHDirCost">
+          <DataField>ActCapOHDirCost</DataField>
+        </Field>
+        <Field Name="ActCapOHDirCostFormat">
+          <DataField>ActCapOHDirCostFormat</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Expected_Operation_Cost_Amt___Control1240070052">
+          <DataField>Prod__Order_Routing_Line__Expected_Operation_Cost_Amt___Control1240070052</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Expected_Operation_Cost_Amt___Control1240070052Format">
+          <DataField>Prod__Order_Routing_Line__Expected_Operation_Cost_Amt___Control1240070052Format</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Expected_Capacity_Need__Control1240070151">
+          <DataField>Prod__Order_Routing_Line__Expected_Capacity_Need__Control1240070151</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Expected_Capacity_Need__Control1240070151Format">
+          <DataField>Prod__Order_Routing_Line__Expected_Capacity_Need__Control1240070151Format</DataField>
+        </Field>
+        <Field Name="ExpSubDirCost_Control1240070153">
+          <DataField>ExpSubDirCost_Control1240070153</DataField>
+        </Field>
+        <Field Name="ExpSubDirCost_Control1240070153Format">
+          <DataField>ExpSubDirCost_Control1240070153Format</DataField>
+        </Field>
+        <Field Name="ExpSubDirCost_Control1240070154">
+          <DataField>ExpSubDirCost_Control1240070154</DataField>
+        </Field>
+        <Field Name="ExpSubDirCost_Control1240070154Format">
+          <DataField>ExpSubDirCost_Control1240070154Format</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Expected_Capacity_Need__Control1240070156">
+          <DataField>Prod__Order_Routing_Line__Expected_Capacity_Need__Control1240070156</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Expected_Capacity_Need__Control1240070156Format">
+          <DataField>Prod__Order_Routing_Line__Expected_Capacity_Need__Control1240070156Format</DataField>
+        </Field>
+        <Field Name="ExpCapDirCost_Control1240070158">
+          <DataField>ExpCapDirCost_Control1240070158</DataField>
+        </Field>
+        <Field Name="ExpCapDirCost_Control1240070158Format">
+          <DataField>ExpCapDirCost_Control1240070158Format</DataField>
+        </Field>
+        <Field Name="ExpCapOHDirCost_Control1240070160">
+          <DataField>ExpCapOHDirCost_Control1240070160</DataField>
+        </Field>
+        <Field Name="ExpCapOHDirCost_Control1240070160Format">
+          <DataField>ExpCapOHDirCost_Control1240070160Format</DataField>
+        </Field>
+        <Field Name="ExpCapDirCost_Control1240070144">
+          <DataField>ExpCapDirCost_Control1240070144</DataField>
+        </Field>
+        <Field Name="ExpCapDirCost_Control1240070144Format">
+          <DataField>ExpCapDirCost_Control1240070144Format</DataField>
+        </Field>
+        <Field Name="ExpCapOHDirCost_Control1240070131">
+          <DataField>ExpCapOHDirCost_Control1240070131</DataField>
+        </Field>
+        <Field Name="ExpCapOHDirCost_Control1240070131Format">
+          <DataField>ExpCapOHDirCost_Control1240070131Format</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Operation_No__Caption">
+          <DataField>Prod__Order_Routing_Line__Operation_No__Caption</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line_TypeCaption">
+          <DataField>Prod__Order_Routing_Line_TypeCaption</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__No__Caption">
+          <DataField>Prod__Order_Routing_Line__No__Caption</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line_DescriptionCaption">
+          <DataField>Prod__Order_Routing_Line_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Expected_Operation_Cost_Amt__Caption">
+          <DataField>Prod__Order_Routing_Line__Expected_Operation_Cost_Amt__Caption</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Expected_Capacity_Need_Caption">
+          <DataField>Prod__Order_Routing_Line__Expected_Capacity_Need_Caption</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Run_Time_Caption">
+          <DataField>Prod__Order_Routing_Line__Run_Time_Caption</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Setup_Time_Caption">
+          <DataField>Prod__Order_Routing_Line__Setup_Time_Caption</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Routing_Link_Code_Caption">
+          <DataField>Prod__Order_Routing_Line__Routing_Link_Code_Caption</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Starting_Date_Caption">
+          <DataField>Prod__Order_Routing_Line__Starting_Date_Caption</DataField>
+        </Field>
+        <Field Name="Expected_Capacity_OHCaption">
+          <DataField>Expected_Capacity_OHCaption</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Overhead_Rate_Caption">
+          <DataField>Prod__Order_Routing_Line__Overhead_Rate_Caption</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line__Unit_Cost_per_Caption">
+          <DataField>Prod__Order_Routing_Line__Unit_Cost_per_Caption</DataField>
+        </Field>
+        <Field Name="Expected_Sub_Contractor_CostCaption">
+          <DataField>Expected_Sub_Contractor_CostCaption</DataField>
+        </Field>
+        <Field Name="Expected_CapacityCaption">
+          <DataField>Expected_CapacityCaption</DataField>
+        </Field>
+        <Field Name="ExpectedCaption">
+          <DataField>ExpectedCaption</DataField>
+        </Field>
+        <Field Name="Capacity_CostCaption">
+          <DataField>Capacity_CostCaption</DataField>
+        </Field>
+        <Field Name="SubcontractCaption">
+          <DataField>SubcontractCaption</DataField>
+        </Field>
+        <Field Name="Capacity_OHCaption">
+          <DataField>Capacity_OHCaption</DataField>
+        </Field>
+        <Field Name="ActualCaption">
+          <DataField>ActualCaption</DataField>
+        </Field>
+        <Field Name="TimeCaption">
+          <DataField>TimeCaption</DataField>
+        </Field>
+        <Field Name="ExpectedCaption_Control1240070100">
+          <DataField>ExpectedCaption_Control1240070100</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line_Status">
+          <DataField>Prod__Order_Routing_Line_Status</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line_Prod__Order_No_">
+          <DataField>Prod__Order_Routing_Line_Prod__Order_No_</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line_Routing_Reference_No_">
+          <DataField>Prod__Order_Routing_Line_Routing_Reference_No_</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line_Routing_No_">
+          <DataField>Prod__Order_Routing_Line_Routing_No_</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry__No__">
+          <DataField>Capacity_Ledger_Entry__No__</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry__Posting_Date_">
+          <DataField>Capacity_Ledger_Entry__Posting_Date_</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry_Type">
+          <DataField>Capacity_Ledger_Entry_Type</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry__Document_No__">
+          <DataField>Capacity_Ledger_Entry__Document_No__</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry_Description">
+          <DataField>Capacity_Ledger_Entry_Description</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry__Operation_No__">
+          <DataField>Capacity_Ledger_Entry__Operation_No__</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry_Quantity">
+          <DataField>Capacity_Ledger_Entry_Quantity</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry_QuantityFormat">
+          <DataField>Capacity_Ledger_Entry_QuantityFormat</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry__Setup_Time_">
+          <DataField>Capacity_Ledger_Entry__Setup_Time_</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry__Setup_Time_Format">
+          <DataField>Capacity_Ledger_Entry__Setup_Time_Format</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry__Run_Time_">
+          <DataField>Capacity_Ledger_Entry__Run_Time_</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry__Run_Time_Format">
+          <DataField>Capacity_Ledger_Entry__Run_Time_Format</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry__Direct_Cost_">
+          <DataField>Capacity_Ledger_Entry__Direct_Cost_</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry__Direct_Cost_Format">
+          <DataField>Capacity_Ledger_Entry__Direct_Cost_Format</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry__Output_Quantity_">
+          <DataField>Capacity_Ledger_Entry__Output_Quantity_</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry__Output_Quantity_Format">
+          <DataField>Capacity_Ledger_Entry__Output_Quantity_Format</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry_Subcontracting">
+          <DataField>Capacity_Ledger_Entry_Subcontracting</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry__Overhead_Cost_">
+          <DataField>Capacity_Ledger_Entry__Overhead_Cost_</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry__Overhead_Cost_Format">
+          <DataField>Capacity_Ledger_Entry__Overhead_Cost_Format</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry__Direct_Cost__Control1240070048">
+          <DataField>Capacity_Ledger_Entry__Direct_Cost__Control1240070048</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry__Direct_Cost__Control1240070048Format">
+          <DataField>Capacity_Ledger_Entry__Direct_Cost__Control1240070048Format</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry_Quantity_Control1240070107">
+          <DataField>Capacity_Ledger_Entry_Quantity_Control1240070107</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry_Quantity_Control1240070107Format">
+          <DataField>Capacity_Ledger_Entry_Quantity_Control1240070107Format</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry__Overhead_Cost__Control1240070075">
+          <DataField>Capacity_Ledger_Entry__Overhead_Cost__Control1240070075</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry__Overhead_Cost__Control1240070075Format">
+          <DataField>Capacity_Ledger_Entry__Overhead_Cost__Control1240070075Format</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry__No__Caption">
+          <DataField>Capacity_Ledger_Entry__No__Caption</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry__Posting_Date_Caption">
+          <DataField>Capacity_Ledger_Entry__Posting_Date_Caption</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry_TypeCaption">
+          <DataField>Capacity_Ledger_Entry_TypeCaption</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry__Document_No__Caption">
+          <DataField>Capacity_Ledger_Entry__Document_No__Caption</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry_DescriptionCaption">
+          <DataField>Capacity_Ledger_Entry_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry__Operation_No__Caption">
+          <DataField>Capacity_Ledger_Entry__Operation_No__Caption</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry_QuantityCaption">
+          <DataField>Capacity_Ledger_Entry_QuantityCaption</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry__Setup_Time_Caption">
+          <DataField>Capacity_Ledger_Entry__Setup_Time_Caption</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry__Run_Time_Caption">
+          <DataField>Capacity_Ledger_Entry__Run_Time_Caption</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry__Direct_Cost_Caption">
+          <DataField>Capacity_Ledger_Entry__Direct_Cost_Caption</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry__Output_Quantity_Caption">
+          <DataField>Capacity_Ledger_Entry__Output_Quantity_Caption</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry_SubcontractingCaption">
+          <DataField>Capacity_Ledger_Entry_SubcontractingCaption</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry__Overhead_Cost_Caption">
+          <DataField>Capacity_Ledger_Entry__Overhead_Cost_Caption</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1240070099">
+          <DataField>ActualCaption_Control1240070099</DataField>
+        </Field>
+        <Field Name="Sub_TotalCaption">
+          <DataField>Sub_TotalCaption</DataField>
+        </Field>
+        <Field Name="Capacity_Ledger_Entry_Entry_No_">
+          <DataField>Capacity_Ledger_Entry_Entry_No_</DataField>
+        </Field>
+        <Field Name="Prod__Order_Component__Item_No__">
+          <DataField>Prod__Order_Component__Item_No__</DataField>
+        </Field>
+        <Field Name="Prod__Order_Component_Description">
+          <DataField>Prod__Order_Component_Description</DataField>
+        </Field>
+        <Field Name="Prod__Order_Component__Routing_Link_Code_">
+          <DataField>Prod__Order_Component__Routing_Link_Code_</DataField>
+        </Field>
+        <Field Name="Prod__Order_Component__Expected_Quantity_">
+          <DataField>Prod__Order_Component__Expected_Quantity_</DataField>
+        </Field>
+        <Field Name="Prod__Order_Component__Expected_Quantity_Format">
+          <DataField>Prod__Order_Component__Expected_Quantity_Format</DataField>
+        </Field>
+        <Field Name="Prod__Order_Component__Cost_Amount_">
+          <DataField>Prod__Order_Component__Cost_Amount_</DataField>
+        </Field>
+        <Field Name="Prod__Order_Component__Cost_Amount_Format">
+          <DataField>Prod__Order_Component__Cost_Amount_Format</DataField>
+        </Field>
+        <Field Name="Prod__Order_Component__Unit_Cost_">
+          <DataField>Prod__Order_Component__Unit_Cost_</DataField>
+        </Field>
+        <Field Name="Prod__Order_Component__Unit_Cost_Format">
+          <DataField>Prod__Order_Component__Unit_Cost_Format</DataField>
+        </Field>
+        <Field Name="Prod__Order_Component__Flushing_Method_">
+          <DataField>Prod__Order_Component__Flushing_Method_</DataField>
+        </Field>
+        <Field Name="Prod__Order_Component__Cost_Amount__Control48">
+          <DataField>Prod__Order_Component__Cost_Amount__Control48</DataField>
+        </Field>
+        <Field Name="Prod__Order_Component__Cost_Amount__Control48Format">
+          <DataField>Prod__Order_Component__Cost_Amount__Control48Format</DataField>
+        </Field>
+        <Field Name="Prod__Order_Component__Item_No__Caption">
+          <DataField>Prod__Order_Component__Item_No__Caption</DataField>
+        </Field>
+        <Field Name="Prod__Order_Component_DescriptionCaption">
+          <DataField>Prod__Order_Component_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Prod__Order_Component__Routing_Link_Code_Caption">
+          <DataField>Prod__Order_Component__Routing_Link_Code_Caption</DataField>
+        </Field>
+        <Field Name="Prod__Order_Component__Expected_Quantity_Caption">
+          <DataField>Prod__Order_Component__Expected_Quantity_Caption</DataField>
+        </Field>
+        <Field Name="Expected_Cost_AmountCaption">
+          <DataField>Expected_Cost_AmountCaption</DataField>
+        </Field>
+        <Field Name="Prod__Order_Component__Unit_Cost_Caption">
+          <DataField>Prod__Order_Component__Unit_Cost_Caption</DataField>
+        </Field>
+        <Field Name="Prod__Order_Component__Flushing_Method_Caption">
+          <DataField>Prod__Order_Component__Flushing_Method_Caption</DataField>
+        </Field>
+        <Field Name="Expected_ItemsCaption">
+          <DataField>Expected_ItemsCaption</DataField>
+        </Field>
+        <Field Name="Total_Expected_Material_CostCaption">
+          <DataField>Total_Expected_Material_CostCaption</DataField>
+        </Field>
+        <Field Name="Prod__Order_Component_Status">
+          <DataField>Prod__Order_Component_Status</DataField>
+        </Field>
+        <Field Name="Prod__Order_Component_Prod__Order_No_">
+          <DataField>Prod__Order_Component_Prod__Order_No_</DataField>
+        </Field>
+        <Field Name="Prod__Order_Component_Prod__Order_Line_No_">
+          <DataField>Prod__Order_Component_Prod__Order_Line_No_</DataField>
+        </Field>
+        <Field Name="Prod__Order_Component_Line_No_">
+          <DataField>Prod__Order_Component_Line_No_</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Item_No__">
+          <DataField>Item_Ledger_Entry__Item_No__</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Posting_Date_">
+          <DataField>Item_Ledger_Entry__Posting_Date_</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Entry_Type_">
+          <DataField>Item_Ledger_Entry__Entry_Type_</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Source_No__">
+          <DataField>Item_Ledger_Entry__Source_No__</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Document_No__">
+          <DataField>Item_Ledger_Entry__Document_No__</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry_Quantity">
+          <DataField>Item_Ledger_Entry_Quantity</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry_QuantityFormat">
+          <DataField>Item_Ledger_Entry_QuantityFormat</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Cost_Amount__Actual__">
+          <DataField>Item_Ledger_Entry__Cost_Amount__Actual__</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Cost_Amount__Actual__Format">
+          <DataField>Item_Ledger_Entry__Cost_Amount__Actual__Format</DataField>
+        </Field>
+        <Field Name="ItemT_Description">
+          <DataField>ItemT_Description</DataField>
+        </Field>
+        <Field Name="CostAmt_VS">
+          <DataField>CostAmt_VS</DataField>
+        </Field>
+        <Field Name="CostAmt_VSFormat">
+          <DataField>CostAmt_VSFormat</DataField>
+        </Field>
+        <Field Name="MaterialVariance">
+          <DataField>MaterialVariance</DataField>
+        </Field>
+        <Field Name="MaterialVarianceFormat">
+          <DataField>MaterialVarianceFormat</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Cost_Amount__Actual___Control1240070067">
+          <DataField>Item_Ledger_Entry__Cost_Amount__Actual___Control1240070067</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Cost_Amount__Actual___Control1240070067Format">
+          <DataField>Item_Ledger_Entry__Cost_Amount__Actual___Control1240070067Format</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Item_No__Caption">
+          <DataField>Item_Ledger_Entry__Item_No__Caption</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Posting_Date_Caption">
+          <DataField>Item_Ledger_Entry__Posting_Date_Caption</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Entry_Type_Caption">
+          <DataField>Item_Ledger_Entry__Entry_Type_Caption</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Source_No__Caption">
+          <DataField>Item_Ledger_Entry__Source_No__Caption</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Document_No__Caption">
+          <DataField>Item_Ledger_Entry__Document_No__Caption</DataField>
+        </Field>
+        <Field Name="DescriptionCaption">
+          <DataField>DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry_QuantityCaption">
+          <DataField>Item_Ledger_Entry_QuantityCaption</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Cost_Amount__Actual__Caption">
+          <DataField>Item_Ledger_Entry__Cost_Amount__Actual__Caption</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1240070083">
+          <DataField>ActualCaption_Control1240070083</DataField>
+        </Field>
+        <Field Name="Total_Actual_Material_CostCaption">
+          <DataField>Total_Actual_Material_CostCaption</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry_Entry_No_">
+          <DataField>Item_Ledger_Entry_Entry_No_</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line___Expected_Operation_Cost_Amt__">
+          <DataField>Prod__Order_Routing_Line___Expected_Operation_Cost_Amt__</DataField>
+        </Field>
+        <Field Name="Prod__Order_Routing_Line___Expected_Operation_Cost_Amt__Format">
+          <DataField>Prod__Order_Routing_Line___Expected_Operation_Cost_Amt__Format</DataField>
+        </Field>
+        <Field Name="Prod__Order_Component___Cost_Amount_">
+          <DataField>Prod__Order_Component___Cost_Amount_</DataField>
+        </Field>
+        <Field Name="Prod__Order_Component___Cost_Amount_Format">
+          <DataField>Prod__Order_Component___Cost_Amount_Format</DataField>
+        </Field>
+        <Field Name="Prod__Order_Component___Cost_Amount_____Prod__Order_Routing_Line___Expected_Operation_Cost_Amt__">
+          <DataField>Prod__Order_Component___Cost_Amount_____Prod__Order_Routing_Line___Expected_Operation_Cost_Amt__</DataField>
+        </Field>
+        <Field Name="Prod__Order_Component___Cost_Amount_____Prod__Order_Routing_Line___Expected_Operation_Cost_Amt__Format">
+          <DataField>Prod__Order_Component___Cost_Amount_____Prod__Order_Routing_Line___Expected_Operation_Cost_Amt__Format</DataField>
+        </Field>
+        <Field Name="ActMatrlCost">
+          <DataField>ActMatrlCost</DataField>
+        </Field>
+        <Field Name="ActMatrlCostFormat">
+          <DataField>ActMatrlCostFormat</DataField>
+        </Field>
+        <Field Name="ActualEach">
+          <DataField>ActualEach</DataField>
+        </Field>
+        <Field Name="ActualEachFormat">
+          <DataField>ActualEachFormat</DataField>
+        </Field>
+        <Field Name="ExpectedQty">
+          <DataField>ExpectedQty</DataField>
+        </Field>
+        <Field Name="ExpectedQtyFormat">
+          <DataField>ExpectedQtyFormat</DataField>
+        </Field>
+        <Field Name="ActualQty">
+          <DataField>ActualQty</DataField>
+        </Field>
+        <Field Name="ActualQtyFormat">
+          <DataField>ActualQtyFormat</DataField>
+        </Field>
+        <Field Name="ExpMfgOH">
+          <DataField>ExpMfgOH</DataField>
+        </Field>
+        <Field Name="ExpMfgOHFormat">
+          <DataField>ExpMfgOHFormat</DataField>
+        </Field>
+        <Field Name="ActLaborCost_Control1240070120">
+          <DataField>ActLaborCost_Control1240070120</DataField>
+        </Field>
+        <Field Name="ActLaborCost_Control1240070120Format">
+          <DataField>ActLaborCost_Control1240070120Format</DataField>
+        </Field>
+        <Field Name="ActLaborHrs_Control1240070125">
+          <DataField>ActLaborHrs_Control1240070125</DataField>
+        </Field>
+        <Field Name="ActLaborHrs_Control1240070125Format">
+          <DataField>ActLaborHrs_Control1240070125Format</DataField>
+        </Field>
+        <Field Name="ActProdOrderEach">
+          <DataField>ActProdOrderEach</DataField>
+        </Field>
+        <Field Name="ActProdOrderEachFormat">
+          <DataField>ActProdOrderEachFormat</DataField>
+        </Field>
+        <Field Name="ExpProdOrderEach">
+          <DataField>ExpProdOrderEach</DataField>
+        </Field>
+        <Field Name="ExpProdOrderEachFormat">
+          <DataField>ExpProdOrderEachFormat</DataField>
+        </Field>
+        <Field Name="ActSubCost_Control1240070133">
+          <DataField>ActSubCost_Control1240070133</DataField>
+        </Field>
+        <Field Name="ActSubCost_Control1240070133Format">
+          <DataField>ActSubCost_Control1240070133Format</DataField>
+        </Field>
+        <Field Name="ExpectedEach">
+          <DataField>ExpectedEach</DataField>
+        </Field>
+        <Field Name="ExpectedEachFormat">
+          <DataField>ExpectedEachFormat</DataField>
+        </Field>
+        <Field Name="IndirectCostPct">
+          <DataField>IndirectCostPct</DataField>
+        </Field>
+        <Field Name="IndirectCostPctFormat">
+          <DataField>IndirectCostPctFormat</DataField>
+        </Field>
+        <Field Name="OHRate">
+          <DataField>OHRate</DataField>
+        </Field>
+        <Field Name="OHRateFormat">
+          <DataField>OHRateFormat</DataField>
+        </Field>
+        <Field Name="ExpSubDirCost_Control1240070129">
+          <DataField>ExpSubDirCost_Control1240070129</DataField>
+        </Field>
+        <Field Name="ExpSubDirCost_Control1240070129Format">
+          <DataField>ExpSubDirCost_Control1240070129Format</DataField>
+        </Field>
+        <Field Name="ExpCapDirCost_Control1240070106">
+          <DataField>ExpCapDirCost_Control1240070106</DataField>
+        </Field>
+        <Field Name="ExpCapDirCost_Control1240070106Format">
+          <DataField>ExpCapDirCost_Control1240070106Format</DataField>
+        </Field>
+        <Field Name="ExpCapOHDirCost_Control1240070146">
+          <DataField>ExpCapOHDirCost_Control1240070146</DataField>
+        </Field>
+        <Field Name="ExpCapOHDirCost_Control1240070146Format">
+          <DataField>ExpCapOHDirCost_Control1240070146Format</DataField>
+        </Field>
+        <Field Name="TotalExpectedCost">
+          <DataField>TotalExpectedCost</DataField>
+        </Field>
+        <Field Name="TotalExpectedCostFormat">
+          <DataField>TotalExpectedCostFormat</DataField>
+        </Field>
+        <Field Name="Prod__Order_Component___Cost_Amount_____Prod__Order_Routing_Line___Expected_Operation_Cost_Amt___Control1240070152">
+          <DataField>Prod__Order_Component___Cost_Amount_____Prod__Order_Routing_Line___Expected_Operation_Cost_Amt___Control1240070152</DataField>
+        </Field>
+        <Field Name="Prod__Order_Component___Cost_Amount_____Prod__Order_Routing_Line___Expected_Operation_Cost_Amt___Control1240070152Format">
+          <DataField>Prod__Order_Component___Cost_Amount_____Prod__Order_Routing_Line___Expected_Operation_Cost_Amt___Control1240070152Format</DataField>
+        </Field>
+        <Field Name="ActCapOHDirCost_Control1240070164">
+          <DataField>ActCapOHDirCost_Control1240070164</DataField>
+        </Field>
+        <Field Name="ActCapOHDirCost_Control1240070164Format">
+          <DataField>ActCapOHDirCost_Control1240070164Format</DataField>
+        </Field>
+        <Field Name="STActCost">
+          <DataField>STActCost</DataField>
+        </Field>
+        <Field Name="STActCostFormat">
+          <DataField>STActCostFormat</DataField>
+        </Field>
+        <Field Name="ExpectedQty_Control1240070166">
+          <DataField>ExpectedQty_Control1240070166</DataField>
+        </Field>
+        <Field Name="ExpectedQty_Control1240070166Format">
+          <DataField>ExpectedQty_Control1240070166Format</DataField>
+        </Field>
+        <Field Name="ActualQty_Control1240070167">
+          <DataField>ActualQty_Control1240070167</DataField>
+        </Field>
+        <Field Name="ActualQty_Control1240070167Format">
+          <DataField>ActualQty_Control1240070167Format</DataField>
+        </Field>
+        <Field Name="OHRate_Control1240070168">
+          <DataField>OHRate_Control1240070168</DataField>
+        </Field>
+        <Field Name="OHRate_Control1240070168Format">
+          <DataField>OHRate_Control1240070168Format</DataField>
+        </Field>
+        <Field Name="IndirectCostPct_Control1240070170">
+          <DataField>IndirectCostPct_Control1240070170</DataField>
+        </Field>
+        <Field Name="IndirectCostPct_Control1240070170Format">
+          <DataField>IndirectCostPct_Control1240070170Format</DataField>
+        </Field>
+        <Field Name="STActCost_Control1240070172">
+          <DataField>STActCost_Control1240070172</DataField>
+        </Field>
+        <Field Name="STActCost_Control1240070172Format">
+          <DataField>STActCost_Control1240070172Format</DataField>
+        </Field>
+        <Field Name="ActMfgOH">
+          <DataField>ActMfgOH</DataField>
+        </Field>
+        <Field Name="ActMfgOHFormat">
+          <DataField>ActMfgOHFormat</DataField>
+        </Field>
+        <Field Name="TotalActualCost">
+          <DataField>TotalActualCost</DataField>
+        </Field>
+        <Field Name="TotalActualCostFormat">
+          <DataField>TotalActualCostFormat</DataField>
+        </Field>
+        <Field Name="TotalExpectedCost___TotalActualCost">
+          <DataField>TotalExpectedCost___TotalActualCost</DataField>
+        </Field>
+        <Field Name="TotalExpectedCost___TotalActualCostFormat">
+          <DataField>TotalExpectedCost___TotalActualCostFormat</DataField>
+        </Field>
+        <Field Name="ExpProdOrderEach___ActProdOrderEach">
+          <DataField>ExpProdOrderEach___ActProdOrderEach</DataField>
+        </Field>
+        <Field Name="ExpProdOrderEach___ActProdOrderEachFormat">
+          <DataField>ExpProdOrderEach___ActProdOrderEachFormat</DataField>
+        </Field>
+        <Field Name="ExpOperCostAmt_VS">
+          <DataField>ExpOperCostAmt_VS</DataField>
+        </Field>
+        <Field Name="ExpOperCostAmt_VSFormat">
+          <DataField>ExpOperCostAmt_VSFormat</DataField>
+        </Field>
+        <Field Name="CostAmt_VS_Int">
+          <DataField>CostAmt_VS_Int</DataField>
+        </Field>
+        <Field Name="CostAmt_VS_IntFormat">
+          <DataField>CostAmt_VS_IntFormat</DataField>
+        </Field>
+        <Field Name="QuantityCaption">
+          <DataField>QuantityCaption</DataField>
+        </Field>
+        <Field Name="Production_Order_Totals_Caption">
+          <DataField>Production_Order_Totals_Caption</DataField>
+        </Field>
+        <Field Name="ExpectedCaption_Control1240070113">
+          <DataField>ExpectedCaption_Control1240070113</DataField>
+        </Field>
+        <Field Name="Capacity_CostCaption_Control1240070121">
+          <DataField>Capacity_CostCaption_Control1240070121</DataField>
+        </Field>
+        <Field Name="SubcontractCaption_Control1240070122">
+          <DataField>SubcontractCaption_Control1240070122</DataField>
+        </Field>
+        <Field Name="Capacity_OHCaption_Control1240070123">
+          <DataField>Capacity_OHCaption_Control1240070123</DataField>
+        </Field>
+        <Field Name="MaterialsCaption">
+          <DataField>MaterialsCaption</DataField>
+        </Field>
+        <Field Name="Manufacturing_OHCaption">
+          <DataField>Manufacturing_OHCaption</DataField>
+        </Field>
+        <Field Name="XCaption">
+          <DataField>XCaption</DataField>
+        </Field>
+        <Field Name="EmptyStringCaption">
+          <DataField>EmptyStringCaption</DataField>
+        </Field>
+        <Field Name="Sub_TotalCaption_Control1240070076">
+          <DataField>Sub_TotalCaption_Control1240070076</DataField>
+        </Field>
+        <Field Name="Exp_Operation_CostCaption">
+          <DataField>Exp_Operation_CostCaption</DataField>
+        </Field>
+        <Field Name="SubTotal_ExpCaption">
+          <DataField>SubTotal_ExpCaption</DataField>
+        </Field>
+        <Field Name="EachCaption">
+          <DataField>EachCaption</DataField>
+        </Field>
+        <Field Name="IC__Caption">
+          <DataField>IC__Caption</DataField>
+        </Field>
+        <Field Name="OH_RateCaption">
+          <DataField>OH_RateCaption</DataField>
+        </Field>
+        <Field Name="Production_Order_TotalCaption">
+          <DataField>Production_Order_TotalCaption</DataField>
+        </Field>
+        <Field Name="EachCaption_Control1240070163">
+          <DataField>EachCaption_Control1240070163</DataField>
+        </Field>
+        <Field Name="EmptyStringCaption_Control1240070169">
+          <DataField>EmptyStringCaption_Control1240070169</DataField>
+        </Field>
+        <Field Name="XCaption_Control1240070171">
+          <DataField>XCaption_Control1240070171</DataField>
+        </Field>
+        <Field Name="SubTotal_ActCaption">
+          <DataField>SubTotal_ActCaption</DataField>
+        </Field>
+        <Field Name="Manufacturing_OHCaption_Control1240070074">
+          <DataField>Manufacturing_OHCaption_Control1240070074</DataField>
+        </Field>
+        <Field Name="Note__Actual_Cost_Values_are_improved_with_a_partial_FG_production_or_more_Caption">
+          <DataField>Note__Actual_Cost_Values_are_improved_with_a_partial_FG_production_or_more_Caption</DataField>
+        </Field>
+        <Field Name="Note__Avoid_using_FPPO_and_RPO_Number_the_same_as_the_FPO___Wrong_Ledgers_may_get_picked_up__Caption">
+          <DataField>Note__Avoid_using_FPPO_and_RPO_Number_the_same_as_the_FPO___Wrong_Ledgers_may_get_picked_up__Caption</DataField>
+        </Field>
+        <Field Name="Act_HrsCaption">
+          <DataField>Act_HrsCaption</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1100768003">
+          <DataField>ActualCaption_Control1100768003</DataField>
+        </Field>
+        <Field Name="VarianceCaption">
+          <DataField>VarianceCaption</DataField>
+        </Field>
+        <Field Name="Integer_Number">
+          <DataField>Integer_Number</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>
