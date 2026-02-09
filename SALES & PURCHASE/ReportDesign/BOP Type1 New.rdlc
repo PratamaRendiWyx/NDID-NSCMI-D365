@@ -4754,7 +4754,13 @@
                                 </Group>
                                 <SortExpressions>
                                   <SortExpression>
+                                    <Value>=Fields!Lot_No_.Value</Value>
+                                  </SortExpression>
+                                  <SortExpression>
                                     <Value>=Fields!Package_No_.Value</Value>
+                                  </SortExpression>
+                                  <SortExpression>
+                                    <Value>=Fields!Sampling_to.Value</Value>
                                   </SortExpression>
                                 </SortExpressions>
                                 <TablixHeader>
