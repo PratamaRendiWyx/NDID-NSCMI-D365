@@ -19,6 +19,7 @@ report 50328 "BOP Type 1"
             column(CustomerName; glbShipmentHeader."Sell-to Customer Name") { }
             column(CustomerPoNo_; glbShipmentHeader."External Document No.") { }
             column(Status1; format(glbShipmentLines."Status Approval")) { }
+            column(ApprovalDate; format(glbShipmentLines."Approval Date", 0, '<Day,2>-<Month,2>-<Year4>')) { } //Format(approvalEntry."Last Date-Time Modified", 0, '<Day,2>-<Month,2>-<Year>
             column(CustomerNo; glbShipmentHeader."Sell-to Customer No.") { }
             column(SpesificationNo; getItemAttribute('Specification No')) { }
             // column(StatusApproval;glbShipmentHeader.)
@@ -245,11 +246,11 @@ report 50328 "BOP Type 1"
             QTLine.SetRange("Quality Measure", 'FM');
         if QTLine.FindSet() then begin
             if QTLine."Result Type" = QTLine."Result Type"::List then begin
-                Clear(qualityResult);
-                qualityResult.Reset();
-                qualityResult.SetRange("Quality Measure Code", QTLine."Quality Measure");
-                if qualityResult.Find('-') then
-                    exit(qualityResult.Description);
+                // Clear(qualityResult);
+                // qualityResult.Reset();
+                // qualityResult.SetRange("Quality Measure Code", QTLine."Quality Measure");
+                // if qualityResult.Find('-') then
+                exit(QTLine.Result);
             end else begin
                 tempText := Format(QTLine."Actual Measure", 0, '<Standard Format,0><Comma,.>');
                 if QTLine.IsInteger then

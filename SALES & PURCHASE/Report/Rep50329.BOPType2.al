@@ -21,6 +21,7 @@ report 50329 "BOP Type 2"
             column(CustomerNo; glbShipmentHeader."Sell-to Customer No.") { }
             column(SpesificationNo; getItemAttribute('Specification No')) { }
             column(Status1; format(glbShipmentLines."Status Approval")) { }
+            column(ApprovalDate; format(glbShipmentLines."Approval Date", 0, '<Day,2>-<Month,2>-<Year4>')) { }
             /*
             BOP - Outside Diameter
             BOP - Inside Diameter
@@ -253,11 +254,12 @@ report 50329 "BOP Type 2"
             QTLine.SetRange("Quality Measure", 'FM');
         if QTLine.FindSet() then begin
             if QTLine."Result Type" = QTLine."Result Type"::List then begin
-                Clear(qualityResult);
-                qualityResult.Reset();
-                qualityResult.SetRange("Quality Measure Code", QTLine."Quality Measure");
-                if qualityResult.Find('-') then
-                    exit(qualityResult.Description);
+                // Clear(qualityResult);
+                // qualityResult.Reset();
+                // qualityResult.SetRange("Quality Measure Code", QTLine."Quality Measure");
+                // if qualityResult.Find('-') then
+                //     exit(qualityResult.Description);
+                exit(QTLine.Result);
             end else begin
                 tempText := Format(QTLine."Actual Measure", 0, '<Standard Format,0><Comma,.>');
                 if QTLine.IsInteger then
