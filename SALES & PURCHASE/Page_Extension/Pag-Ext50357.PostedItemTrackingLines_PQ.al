@@ -63,6 +63,54 @@ pageextension 50357 PostedItemTrackingLines_PQ extends "Posted Item Tracking Lin
                     end;
                 end;
             }
+
+            action("PrintCertofAnalysis New")
+            {
+                Caption = '&Print BOP New';
+                Image = Print;
+                Promoted = true;
+                PromotedCategory = Report;
+                PromotedIsBig = true;
+                ToolTip = 'Print Certificate for the item';
+                ApplicationArea = All;
+                trigger OnAction()
+                var
+                    ILE: Record "Item Ledger Entry";
+                    Item: Record Item;
+                begin
+                    Clear(ILE);
+                    ILE.Reset();
+                    ILE.SetRange("Document No.", Rec."Document No.");
+                    ILE.SetRange("Document Line No.", Rec."Document Line No.");
+                    ILE.SetRange("Item No.", Rec."Item No.");
+
+                    Item.Reset();
+                    Item.SetRange("No.", Rec."Item No.");
+                    if Item.Find('-') then begin
+                        if Item."BOP Type" = Item."BOP Type"::" " then
+                            Error('Please set BOP Type for this item %1', Rec."Item No.");
+                        case
+                            Item."BOP Type" of
+                            Item."BOP Type"::"1":
+                                begin
+                                    REPORT.Run(REPORT::"BOP Type 1 New", true, false, ILE);
+                                end;
+                            Item."BOP Type"::"2":
+                                begin
+                                    REPORT.Run(REPORT::"BOP Type 2 New", true, false, ILE);
+                                end;
+                            Item."BOP Type"::"3":
+                                begin
+                                    REPORT.Run(REPORT::"BOP Type 3", true, false, ILE);
+                                end;
+                            Item."BOP Type"::"4":
+                                begin
+                                    REPORT.Run(REPORT::"BOP Type 4", true, false, ILE);
+                                end;
+                        end;
+                    end;
+                end;
+            }
         }
     }
 }
