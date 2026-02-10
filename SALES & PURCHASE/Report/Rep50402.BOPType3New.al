@@ -1,8 +1,8 @@
-report 50400 "BOP Type 1 New"
+report 50402 "BOP Type 3 New"
 {
     Caption = 'Print BOP';
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportDesign/BOP Type1 New.rdlc';
+    RDLCLayout = './ReportDesign/BOP Type3 New.rdlc';
     ApplicationArea = All;
 
     dataset
@@ -15,14 +15,13 @@ report 50400 "BOP Type 1 New"
             {
 
             }
+            column(Status1; format(glbShipmentLines."Status Approval")) { }
+            column(ApprovalDate; format(glbShipmentLines."Approval Date", 0, '<Day,2>-<Month,2>-<Year4>')) { }
             column(glbCustomer; Format(glbCustomer)) { }
             column(CustomerName; glbShipmentHeader."Sell-to Customer Name") { }
             column(CustomerPoNo_; glbShipmentHeader."External Document No.") { }
-            column(Status1; format(glbShipmentLines."Status Approval")) { }
-            column(ApprovalDate; format(glbShipmentLines."Approval Date", 0, '<Day,2>-<Month,2>-<Year4>')) { } //Format(approvalEntry."Last Date-Time Modified", 0, '<Day,2>-<Month,2>-<Year>
             column(CustomerNo; glbShipmentHeader."Sell-to Customer No.") { }
             column(SpesificationNo; getItemAttribute('Specification No')) { }
-            // column(StatusApproval;glbShipmentHeader.)
             /*
             BOP - Outside Diameter
             BOP - Inside Diameter
@@ -79,8 +78,9 @@ report 50400 "BOP Type 1 New"
                 {
                     DataItemLink = "Test No." = field("Test No.");
                     DataItemLinkReference = QualityTestHeader_PQ;
-                    DataItemTableView = sorting("Test No.", "Line No.");
+                    DataItemTableView = sorting("Test No.", "Line No.", "Sampling to");
                     column(Sampling_to; "Sampling to") { }
+                    column(rowNumber; rowNumber) { }
                     column(Display1; getValueQT(QualityTestHeader_PQ."Test No.", QualityTestLines_PQ."Sampling to", 1)) { }
                     column(Display2; getValueQT(QualityTestHeader_PQ."Test No.", QualityTestLines_PQ."Sampling to", 2)) { }
                     column(Display3; getValueQT(QualityTestHeader_PQ."Test No.", QualityTestLines_PQ."Sampling to", 3)) { }
@@ -108,12 +108,19 @@ report 50400 "BOP Type 1 New"
                     begin
                         if not Display then
                             CurrReport.Skip();
+                        currDat := "Lot No." + '#' + Format("Sampling to");
+                        if currDat <> TempDat then begin
+                            rowNumber += 1;
+                        end;
+                        TempDat := currDat;
                     end;
 
                     trigger OnPreDataItem()
                     var
                         myInt: Integer;
                     begin
+                        Clear(currDat);
+                        Clear(TempDat);
                         if glbSampleto = glbSampleto::Single then
                             SetRange("Sampling to", 1);
                     end;
@@ -142,8 +149,8 @@ report 50400 "BOP Type 1 New"
 
                 Clear(glbShipmentLines);
                 glbShipmentLines.Reset();
-                glbShipmentLines.SetRange("Document No.", "Item Ledger Entry"."Document No.");
-                glbShipmentLines.SetRange("Line No.", "Item Ledger Entry"."Document Line No.");
+                glbShipmentLines.SetRange("Document No.", "Document No.");
+                glbShipmentLines.SetRange("Line No.", "Document Line No.");
                 if not glbShipmentLines.FindSet() then;
 
                 Clear(glbItem);
@@ -180,7 +187,6 @@ report 50400 "BOP Type 1 New"
                         Caption = 'Sample to';
                         ApplicationArea = All;
                     }
-
                 }
             }
         }
@@ -329,6 +335,9 @@ report 50400 "BOP Type 1 New"
         CustomerPoNo: Text;
         NoContainer: Text;
         TotalQty: Decimal;
+        rowNumber: Integer;
+        currDat: Text;
+        TempDat: Text;
 
 
 
@@ -408,11 +417,11 @@ report 50400 "BOP Type 1 New"
     end;
 
     var
+        glbShipmentLines: Record "Sales Shipment Line";
         TestNoList: Text;
         glbShipmentHeader: Record "Sales Shipment Header";
-        glbShipmentLines: Record "Sales Shipment Line";
         glbItem: Record Item;
         glbCustomer: enum "BOP Customer";
-        glbSampleto: enum "Sample to BOP";
         glbBOPDocReffList: Record "BOP Refference Document";
+        glbSampleto: enum "Sample to BOP";
 }

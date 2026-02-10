@@ -64,9 +64,9 @@ pageextension 50357 PostedItemTrackingLines_PQ extends "Posted Item Tracking Lin
                 end;
             }
 
-            action("PrintCertofAnalysis New")
+            action("PrintCertofAnalysis Multiple")
             {
-                Caption = '&Print BOP New';
+                Caption = '&Print BOP Multiple';
                 Image = Print;
                 Promoted = true;
                 PromotedCategory = Report;
@@ -101,11 +101,11 @@ pageextension 50357 PostedItemTrackingLines_PQ extends "Posted Item Tracking Lin
                                 end;
                             Item."BOP Type"::"3":
                                 begin
-                                    REPORT.Run(REPORT::"BOP Type 3", true, false, ILE);
+                                    REPORT.Run(REPORT::"BOP Type 3 New", true, false, ILE);
                                 end;
                             Item."BOP Type"::"4":
                                 begin
-                                    REPORT.Run(REPORT::"BOP Type 4", true, false, ILE);
+                                    REPORT.Run(REPORT::"BOP Type 4 New", true, false, ILE);
                                 end;
                         end;
                     end;

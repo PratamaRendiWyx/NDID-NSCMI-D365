@@ -5075,7 +5075,7 @@
                                                 </Style>
                                               </TextRun>
                                               <TextRun>
-                                                <Value>=First(Fields!FoilValue.Value, "DataSet_Result")</Value>
+                                                <Value>=First(Fields!MantleValue.Value, "DataSet_Result")</Value>
                                                 <Style>
                                                   <FontSize>9pt</FontSize>
                                                 </Style>
