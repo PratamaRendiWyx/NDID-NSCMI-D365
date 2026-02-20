@@ -63,7 +63,7 @@
                   <Width>1cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.99143cm</Width>
+                  <Width>0.9633cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.57962cm</Width>
@@ -81,21 +81,15 @@
                   <Width>1.10726cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.0889cm</Width>
+                  <Width>1.63764cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.13945cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>1.82804cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>3.39672cm</Width>
+                  <Width>1.60763cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>6.44287cm</Height>
+                  <Height>6.82859cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -788,10 +782,10 @@
                                   <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>0.30098cm</Top>
-                              <Left>22.74757cm</Left>
+                              <Top>0.29268cm</Top>
+                              <Left>16.57565cm</Left>
                               <Height>1.38385cm</Height>
-                              <Width>12.25382cm</Width>
+                              <Width>12.05697cm</Width>
                               <ZIndex>19</ZIndex>
                               <Style>
                                 <Border>
@@ -890,8 +884,8 @@
                                   <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>1.68483cm</Top>
-                              <Left>22.74757cm</Left>
+                              <Top>1.67653cm</Top>
+                              <Left>16.57565cm</Left>
                               <Height>0.54708cm</Height>
                               <Width>5.99889cm</Width>
                               <ZIndex>22</ZIndex>
@@ -926,10 +920,10 @@
                                   <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>1.67653cm</Top>
-                              <Left>29.06806cm</Left>
+                              <Top>1.66823cm</Top>
+                              <Left>22.89614cm</Left>
                               <Height>0.55538cm</Height>
-                              <Width>5.93333cm</Width>
+                              <Width>5.73971cm</Width>
                               <ZIndex>23</ZIndex>
                               <Style>
                                 <Border>
@@ -961,8 +955,8 @@
                                   <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>1.67653cm</Top>
-                              <Left>28.74646cm</Left>
+                              <Top>1.66823cm</Top>
+                              <Left>22.57454cm</Left>
                               <Height>0.55538cm</Height>
                               <Width>0.31837cm</Width>
                               <ZIndex>24</ZIndex>
@@ -996,8 +990,8 @@
                                   <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>2.23191cm</Top>
-                              <Left>22.7508cm</Left>
+                              <Top>2.22361cm</Top>
+                              <Left>16.57888cm</Left>
                               <Height>0.57406cm</Height>
                               <Width>5.99566cm</Width>
                               <ZIndex>25</ZIndex>
@@ -1032,10 +1026,10 @@
                                   <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>2.23191cm</Top>
-                              <Left>29.06483cm</Left>
+                              <Top>2.22361cm</Top>
+                              <Left>22.89291cm</Left>
                               <Height>0.57406cm</Height>
-                              <Width>5.93656cm</Width>
+                              <Width>5.74294cm</Width>
                               <ZIndex>26</ZIndex>
                               <Style>
                                 <Border>
@@ -1067,8 +1061,8 @@
                                   <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>2.23191cm</Top>
-                              <Left>28.74646cm</Left>
+                              <Top>2.22361cm</Top>
+                              <Left>22.57454cm</Left>
                               <Height>0.57406cm</Height>
                               <Width>0.3216cm</Width>
                               <ZIndex>27</ZIndex>
@@ -1135,8 +1129,8 @@
                                       </Style>
                                     </Paragraph>
                                   </Paragraphs>
-                                  <Top>1.63309cm</Top>
-                                  <Left>6.61882cm</Left>
+                                  <Top>1.68833cm</Top>
+                                  <Left>7.20452cm</Left>
                                   <Height>0.49417cm</Height>
                                   <Width>4.85246cm</Width>
                                   <ZIndex>1</ZIndex>
@@ -1155,10 +1149,10 @@
                                   <Source>Embedded</Source>
                                   <Value>VascalTTD1</Value>
                                   <Sizing>FitProportional</Sizing>
-                                  <Top>0.35887cm</Top>
-                                  <Left>7.78211cm</Left>
-                                  <Height>1.09783cm</Height>
-                                  <Width>2.21434cm</Width>
+                                  <Top>0.37774cm</Top>
+                                  <Left>8.45246cm</Left>
+                                  <Height>1.1342cm</Height>
+                                  <Width>2.12968cm</Width>
                                   <ZIndex>2</ZIndex>
                                   <Style>
                                     <Border>
@@ -1168,10 +1162,10 @@
                                 </Image>
                               </ReportItems>
                               <KeepTogether>true</KeepTogether>
-                              <Top>2.77899cm</Top>
-                              <Left>22.74757cm</Left>
+                              <Top>2.77069cm</Top>
+                              <Left>16.57565cm</Left>
                               <Height>2.1825cm</Height>
-                              <Width>12.25382cm</Width>
+                              <Width>12.05698cm</Width>
                               <ZIndex>28</ZIndex>
                               <Style>
                                 <Border>
@@ -1199,8 +1193,8 @@
                                   <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>2.77899cm</Top>
-                              <Left>22.7508cm</Left>
+                              <Top>2.77069cm</Top>
+                              <Left>16.57888cm</Left>
                               <Height>0.49417cm</Height>
                               <Width>4.15239cm</Width>
                               <ZIndex>29</ZIndex>
@@ -1247,10 +1241,10 @@
                                   <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>4.96149cm</Top>
-                              <Left>22.7508cm</Left>
+                              <Top>4.95319cm</Top>
+                              <Left>16.57888cm</Left>
                               <Height>1.38385cm</Height>
-                              <Width>12.25059cm</Width>
+                              <Width>12.05697cm</Width>
                               <ZIndex>30</ZIndex>
                               <Style>
                                 <Border>
@@ -1271,13 +1265,13 @@
                               <Source>Embedded</Source>
                               <Value>MicrosoftTeamsimageremovebgpreview</Value>
                               <Sizing>FitProportional</Sizing>
-                              <Top>0.30098cm</Top>
-                              <Left>12.91317cm</Left>
+                              <Top>0.54708cm</Top>
+                              <Left>7.19645cm</Left>
                               <Height>5.59331cm</Height>
                               <Width>14.3302cm</Width>
                               <ZIndex>31</ZIndex>
                               <Visibility>
-                                <Hidden>=IIF(Fields!Status1.Value = "Approved", True, False)</Hidden>
+                                <Hidden>=IIF((MAX(Fields!Status1.Value, "DataSet_Result")) = "Approved", TRUE, FALSE)</Hidden>
                               </Visibility>
                               <Style>
                                 <Border>
@@ -1293,11 +1287,9 @@
                             </Border>
                           </Style>
                         </Rectangle>
-                        <ColSpan>24</ColSpan>
+                        <ColSpan>22</ColSpan>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell />
-                    <TablixCell />
                     <TablixCell />
                     <TablixCell />
                     <TablixCell />
@@ -1351,11 +1343,9 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <ColSpan>24</ColSpan>
+                        <ColSpan>22</ColSpan>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell />
-                    <TablixCell />
                     <TablixCell />
                     <TablixCell />
                     <TablixCell />
@@ -1404,9 +1394,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <Top>0.49037cm</Top>
-                              <Left>1.99696cm</Left>
+                              <Left>0.5453cm</Left>
                               <Height>1.43845cm</Height>
-                              <Width>11.61985cm</Width>
+                              <Width>10.7347cm</Width>
                               <Style>
                                 <Border>
                                   <Style>Solid</Style>
@@ -1443,9 +1433,9 @@
                               <Value>Arrowremovebgpreview</Value>
                               <Sizing>FitProportional</Sizing>
                               <Top>0.98329cm</Top>
-                              <Left>15.66227cm</Left>
+                              <Left>12.66929cm</Left>
                               <Height>0.54166cm</Height>
-                              <Width>3.6cm</Width>
+                              <Width>4.38013cm</Width>
                               <ZIndex>1</ZIndex>
                               <Style>
                                 <Border>
@@ -1473,7 +1463,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <Top>0.57732cm</Top>
-                              <Left>15.66227cm</Left>
+                              <Left>12.66929cm</Left>
                               <Height>0.54708cm</Height>
                               <Width>3.6cm</Width>
                               <ZIndex>2</ZIndex>
@@ -1495,7 +1485,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>PT. NIPPON STEEL Chemical And Material Indonesia</Value>
+                                      <Value>PT. NIPPON STEEL Chemical And Material Indonesias</Value>
                                       <Style />
                                     </TextRun>
                                   </TextRuns>
@@ -1505,9 +1495,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <Top>0.49037cm</Top>
-                              <Left>20.91467cm</Left>
+                              <Left>17.92169cm</Left>
                               <Height>1.43845cm</Height>
-                              <Width>10.54964cm</Width>
+                              <Width>10.2556cm</Width>
                               <ZIndex>3</ZIndex>
                               <Style>
                                 <Border>
@@ -1568,11 +1558,9 @@
                             </RightBorder>
                           </Style>
                         </Rectangle>
-                        <ColSpan>24</ColSpan>
+                        <ColSpan>22</ColSpan>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell />
-                    <TablixCell />
                     <TablixCell />
                     <TablixCell />
                     <TablixCell />
@@ -1632,11 +1620,9 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <ColSpan>24</ColSpan>
+                        <ColSpan>22</ColSpan>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell />
-                    <TablixCell />
                     <TablixCell />
                     <TablixCell />
                     <TablixCell />
@@ -1661,14 +1647,13 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.67204cm</Height>
+                  <Height>0.7426cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <rd:Selected>true</rd:Selected>
                         <Rectangle Name="Rectangle3">
                           <ReportItems>
-                            <Textbox Name="Textbox48">
+                            <Textbox Name="Textbox44">
                               <rd:DefaultName>Textbox10</rd:DefaultName>
                               <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
@@ -1676,7 +1661,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>INSPECTION ITEM</Value>
+                                      <Value>INSPECTIONITEM</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
                                         <FontSize>8pt</FontSize>
@@ -1691,7 +1676,8 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Left>15.18406cm</Left>
+                              <Top>0.03528cm</Top>
+                              <Left>12.58271cm</Left>
                               <Height>0.67204cm</Height>
                               <Width>3.89393cm</Width>
                               <Style>
@@ -1709,13 +1695,13 @@
                               <Source>Embedded</Source>
                               <Value>QNSCMI</Value>
                               <Sizing>FitProportional</Sizing>
-                              <Top>0.07761cm</Top>
-                              <Left>18.50521cm</Left>
+                              <Top>0.11289cm</Top>
+                              <Left>15.8002cm</Left>
                               <Height>0.4886cm</Height>
                               <Width>0.57278cm</Width>
                               <ZIndex>1</ZIndex>
                               <Visibility>
-                                <Hidden>=IIF(First(Fields!CustomerNo.Value, "DataSet_Result") = "C0002", False, True)</Hidden>
+                                <Hidden>=IIF((First(Fields!CustomerNo.Value, "DataSet_Result")) = "C0002", FALSE, TRUE)</Hidden>
                               </Visibility>
                               <Style>
                                 <Border>
@@ -1725,18 +1711,35 @@
                             </Image>
                           </ReportItems>
                           <KeepTogether>true</KeepTogether>
-                          <ZIndex>1</ZIndex>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
                             </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
                           </Style>
                         </Rectangle>
-                        <ColSpan>24</ColSpan>
+                        <ColSpan>22</ColSpan>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell />
-                    <TablixCell />
                     <TablixCell />
                     <TablixCell />
                     <TablixCell />
@@ -1849,7 +1852,7 @@
                                     <Width>1.3874cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>0.60404cm</Width>
+                                    <Width>0.57423cm</Width>
                                   </TablixColumn>
                                 </TablixColumns>
                                 <TablixRows>
@@ -2527,7 +2530,7 @@
                               </TablixRowHierarchy>
                               <DataSetName>DataSet_Result</DataSetName>
                               <Height>2.29627cm</Height>
-                              <Width>15.19143cm</Width>
+                              <Width>15.16162cm</Width>
                               <Style>
                                 <Border>
                                   <Style>Solid</Style>
@@ -3063,6 +3066,9 @@
                               <TablixColumn>
                                 <Width>1.10726cm</Width>
                               </TablixColumn>
+                              <TablixColumn>
+                                <Width>1.63764cm</Width>
+                              </TablixColumn>
                             </TablixColumns>
                             <TablixRows>
                               <TablixRow>
@@ -3146,6 +3152,60 @@
                                             <TextRuns>
                                               <TextRun>
                                                 <Value>Weight</Value>
+                                                <Style>
+                                                  <FontSize>7pt</FontSize>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <Style>
+                                          <Border>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <TopBorder>
+                                            <Color>Black</Color>
+                                            <Style>Solid</Style>
+                                            <Width>1pt</Width>
+                                          </TopBorder>
+                                          <BottomBorder>
+                                            <Color>Black</Color>
+                                            <Style>Solid</Style>
+                                            <Width>1pt</Width>
+                                          </BottomBorder>
+                                          <LeftBorder>
+                                            <Color>Black</Color>
+                                            <Style>Solid</Style>
+                                            <Width>1pt</Width>
+                                          </LeftBorder>
+                                          <RightBorder>
+                                            <Color>Black</Color>
+                                            <Style>Solid</Style>
+                                            <Width>1pt</Width>
+                                          </RightBorder>
+                                          <VerticalAlign>Middle</VerticalAlign>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="Textbox346">
+                                        <rd:DefaultName>Textbox346</rd:DefaultName>
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>Apperance</Value>
                                                 <Style>
                                                   <FontSize>7pt</FontSize>
                                                 </Style>
@@ -3308,196 +3368,10 @@
                                       </Textbox>
                                     </CellContents>
                                   </TablixCell>
-                                </TablixCells>
-                              </TablixRow>
-                            </TablixRows>
-                          </TablixBody>
-                          <TablixColumnHierarchy>
-                            <TablixMembers>
-                              <TablixMember />
-                              <TablixMember />
-                            </TablixMembers>
-                          </TablixColumnHierarchy>
-                          <TablixRowHierarchy>
-                            <TablixMembers>
-                              <TablixMember />
-                              <TablixMember />
-                            </TablixMembers>
-                          </TablixRowHierarchy>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                          </Style>
-                        </Tablix>
-                        <ColSpan>2</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell />
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox46">
-                          <rd:DefaultName>Textbox46</rd:DefaultName>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Joint Area</Value>
-                                  <Style>
-                                    <FontSize>7pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <TopBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </RightBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox47">
-                          <rd:DefaultName>Textbox47</rd:DefaultName>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Brazing Strength</Value>
-                                  <Style>
-                                    <FontSize>7pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Tablix Name="Tablix5">
-                          <TablixBody>
-                            <TablixColumns>
-                              <TablixColumn>
-                                <Width>1.82804cm</Width>
-                              </TablixColumn>
-                            </TablixColumns>
-                            <TablixRows>
-                              <TablixRow>
-                                <Height>1.14813cm</Height>
-                                <TablixCells>
                                   <TablixCell>
                                     <CellContents>
-                                      <Textbox Name="Textbox110">
-                                        <rd:DefaultName>Textbox110</rd:DefaultName>
-                                        <CanGrow>true</CanGrow>
-                                        <KeepTogether>true</KeepTogether>
-                                        <Paragraphs>
-                                          <Paragraph>
-                                            <TextRuns>
-                                              <TextRun>
-                                                <Value>Appearance</Value>
-                                                <Style>
-                                                  <FontSize>7pt</FontSize>
-                                                </Style>
-                                              </TextRun>
-                                            </TextRuns>
-                                            <Style>
-                                              <TextAlign>Center</TextAlign>
-                                            </Style>
-                                          </Paragraph>
-                                        </Paragraphs>
-                                        <Style>
-                                          <Border>
-                                            <Style>Solid</Style>
-                                          </Border>
-                                          <TopBorder>
-                                            <Color>Black</Color>
-                                            <Style>Solid</Style>
-                                            <Width>1pt</Width>
-                                          </TopBorder>
-                                          <BottomBorder>
-                                            <Color>Black</Color>
-                                            <Style>Solid</Style>
-                                            <Width>1pt</Width>
-                                          </BottomBorder>
-                                          <LeftBorder>
-                                            <Color>Black</Color>
-                                            <Style>Solid</Style>
-                                            <Width>1pt</Width>
-                                          </LeftBorder>
-                                          <RightBorder>
-                                            <Color>Black</Color>
-                                            <Style>Solid</Style>
-                                            <Width>1pt</Width>
-                                          </RightBorder>
-                                          <VerticalAlign>Middle</VerticalAlign>
-                                          <PaddingLeft>2pt</PaddingLeft>
-                                          <PaddingRight>2pt</PaddingRight>
-                                          <PaddingTop>2pt</PaddingTop>
-                                          <PaddingBottom>2pt</PaddingBottom>
-                                        </Style>
-                                      </Textbox>
-                                    </CellContents>
-                                  </TablixCell>
-                                </TablixCells>
-                              </TablixRow>
-                              <TablixRow>
-                                <Height>1.14813cm</Height>
-                                <TablixCells>
-                                  <TablixCell>
-                                    <CellContents>
-                                      <Textbox Name="Textbox112">
-                                        <rd:DefaultName>Textbox112</rd:DefaultName>
+                                      <Textbox Name="Textbox350">
+                                        <rd:DefaultName>Textbox350</rd:DefaultName>
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
@@ -3555,6 +3429,8 @@
                           <TablixColumnHierarchy>
                             <TablixMembers>
                               <TablixMember />
+                              <TablixMember />
+                              <TablixMember />
                             </TablixMembers>
                           </TablixColumnHierarchy>
                           <TablixRowHierarchy>
@@ -3565,32 +3441,15 @@
                           </TablixRowHierarchy>
                           <Style>
                             <Border>
-                              <Style>Solid</Style>
+                              <Style>None</Style>
                             </Border>
-                            <TopBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </RightBorder>
                           </Style>
                         </Tablix>
+                        <ColSpan>3</ColSpan>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell />
+                    <TablixCell />
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="Textbox264">
@@ -4751,118 +4610,8 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox55">
-                          <rd:DefaultName>Textbox55</rd:DefaultName>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>OK</Value>
-                                  <Style>
-                                    <FontSize>7pt</FontSize>
-                                    <Format>n1</Format>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <TopBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </RightBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox73">
-                          <rd:DefaultName>Textbox73</rd:DefaultName>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>OK</Value>
-                                  <Style>
-                                    <FontSize>7pt</FontSize>
-                                    <Format>n1</Format>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <TopBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </RightBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox105">
-                          <rd:DefaultName>Textbox105</rd:DefaultName>
+                        <Textbox Name="Textbox338">
+                          <rd:DefaultName>Textbox338</rd:DefaultName>
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -4978,13 +4727,13 @@
                           <TablixBody>
                             <TablixColumns>
                               <TablixColumn>
-                                <Width>3.75409cm</Width>
+                                <Width>1.74808cm</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>19.58016cm</Width>
+                                <Width>17.42886cm</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>11.66713cm</Width>
+                                <Width>9.58847cm</Width>
                               </TablixColumn>
                             </TablixColumns>
                             <TablixRows>
@@ -5077,7 +4826,7 @@
                                         </Paragraphs>
                                         <Style>
                                           <Border>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <TopBorder>
                                             <Color>Black</Color>
@@ -5089,11 +4838,6 @@
                                             <Style>Solid</Style>
                                             <Width>1pt</Width>
                                           </BottomBorder>
-                                          <LeftBorder>
-                                            <Color>Black</Color>
-                                            <Style>Solid</Style>
-                                            <Width>1pt</Width>
-                                          </LeftBorder>
                                           <RightBorder>
                                             <Color>Black</Color>
                                             <Style>Solid</Style>
@@ -5131,11 +4875,9 @@
                             </Border>
                           </Style>
                         </Tablix>
-                        <ColSpan>24</ColSpan>
+                        <ColSpan>22</ColSpan>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell />
-                    <TablixCell />
                     <TablixCell />
                     <TablixCell />
                     <TablixCell />
@@ -5185,8 +4927,6 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
-                <TablixMember />
-                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -5210,7 +4950,6 @@
                   <RepeatOnNewPage>true</RepeatOnNewPage>
                 </TablixMember>
                 <TablixMember>
-                  <KeepWithGroup>After</KeepWithGroup>
                   <RepeatOnNewPage>true</RepeatOnNewPage>
                 </TablixMember>
                 <TablixMember>
@@ -5228,15 +4967,13 @@
                     <TablixMember />
                   </TablixMembers>
                 </TablixMember>
-                <TablixMember>
-                  <KeepTogether>true</KeepTogether>
-                </TablixMember>
+                <TablixMember />
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
             <Left>0.04233cm</Left>
-            <Height>13.34758cm</Height>
-            <Width>35.00139cm</Width>
+            <Height>13.80386cm</Height>
+            <Width>28.76542cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -5244,10 +4981,10 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>13.46825cm</Height>
+        <Height>15.29518cm</Height>
         <Style />
       </Body>
-      <Width>35.14189cm</Width>
+      <Width>28.80775cm</Width>
       <Page>
         <PageHeader>
           <Height>3.15403cm</Height>
@@ -5276,7 +5013,7 @@
               </Paragraphs>
               <Top>2.18546cm</Top>
               <Height>0.81167cm</Height>
-              <Width>35.14189cm</Width>
+              <Width>28.7578cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5304,8 +5041,8 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0.36755cm</Top>
-              <Left>29.40872cm</Left>
+              <Top>0.34192cm</Top>
+              <Left>23.00817cm</Left>
               <Height>0.52062cm</Height>
               <Width>2.5cm</Width>
               <ZIndex>1</ZIndex>
@@ -5356,8 +5093,8 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0.88817cm</Top>
-              <Left>29.40872cm</Left>
+              <Top>0.86254cm</Top>
+              <Left>23.00817cm</Left>
               <Height>0.52944cm</Height>
               <Width>2.5cm</Width>
               <ZIndex>2</ZIndex>
@@ -5408,8 +5145,8 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>1.41762cm</Top>
-              <Left>29.40872cm</Left>
+              <Top>1.39199cm</Top>
+              <Left>23.00817cm</Left>
               <Height>0.52063cm</Height>
               <Width>2.5cm</Width>
               <ZIndex>3</ZIndex>
@@ -5460,8 +5197,8 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0.36754cm</Top>
-              <Left>31.90872cm</Left>
+              <Top>0.34191cm</Top>
+              <Left>25.50817cm</Left>
               <Height>0.52062cm</Height>
               <Width>3.135cm</Width>
               <ZIndex>4</ZIndex>
@@ -5512,8 +5249,8 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0.88816cm</Top>
-              <Left>31.90872cm</Left>
+              <Top>0.86253cm</Top>
+              <Left>25.50817cm</Left>
               <Height>0.52944cm</Height>
               <Width>3.135cm</Width>
               <ZIndex>5</ZIndex>
@@ -5564,8 +5301,8 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>1.41761cm</Top>
-              <Left>31.90872cm</Left>
+              <Top>1.39198cm</Top>
+              <Left>25.50817cm</Left>
               <Height>0.52063cm</Height>
               <Width>3.135cm</Width>
               <ZIndex>6</ZIndex>
@@ -5624,7 +5361,7 @@
                 </Paragraph>
               </Paragraphs>
               <Top>2.04407cm</Top>
-              <Left>32.45379cm</Left>
+              <Left>26.10379cm</Left>
               <Height>0.49417cm</Height>
               <Width>2.5cm</Width>
               <ZIndex>7</ZIndex>
@@ -5642,7 +5379,7 @@
               <Source>Embedded</Source>
               <Value>ID2025101710_09_49SUMMARIESBOPCEKmbakyuliafeedback1Excel</Value>
               <Sizing>FitProportional</Sizing>
-              <Top>0.15697cm</Top>
+              <Top>0.15698cm</Top>
               <Left>0.09525cm</Left>
               <Height>0.70556cm</Height>
               <Width>11.57361cm</Width>
@@ -5661,7 +5398,7 @@
           </Style>
         </PageHeader>
         <PageHeight>21cm</PageHeight>
-        <PageWidth>36cm</PageWidth>
+        <PageWidth>29.7cm</PageWidth>
         <LeftMargin>0.25cm</LeftMargin>
         <RightMargin>0.25cm</RightMargin>
         <TopMargin>0.25cm</TopMargin>
@@ -6110,14 +5847,8 @@ JFtGPB5HKBTigkQsFoPX68XKygoGBgbQ39+P6elpzM7Owu/381wuEKo0kyCjVqt5KDPlYCGTlIKFOofD
   <DataSets>
     <DataSet Name="DataSet_Result">
       <Fields>
-        <Field Name="Entry_No_">
-          <DataField>Entry_No_</DataField>
-        </Field>
-        <Field Name="Package_No_">
-          <DataField>Package_No_</DataField>
-        </Field>
-        <Field Name="glbCustomer">
-          <DataField>glbCustomer</DataField>
+        <Field Name="Document_No_">
+          <DataField>Document_No_</DataField>
         </Field>
         <Field Name="CustomerName">
           <DataField>CustomerName</DataField>
@@ -6125,17 +5856,47 @@ JFtGPB5HKBTigkQsFoPX68XKygoGBgbQ39+P6elpzM7Owu/381wuEKo0kyCjVqt5KDPlYCGTlIKFOofD
         <Field Name="CustomerPoNo_">
           <DataField>CustomerPoNo_</DataField>
         </Field>
-        <Field Name="CustomerNo">
-          <DataField>CustomerNo</DataField>
-        </Field>
-        <Field Name="SpesificationNo">
-          <DataField>SpesificationNo</DataField>
-        </Field>
         <Field Name="Status1">
           <DataField>Status1</DataField>
         </Field>
         <Field Name="ApprovalDate">
           <DataField>ApprovalDate</DataField>
+        </Field>
+        <Field Name="Posting_Date">
+          <DataField>Posting_Date</DataField>
+        </Field>
+        <Field Name="glbCustomer">
+          <DataField>glbCustomer</DataField>
+        </Field>
+        <Field Name="CustomerNo">
+          <DataField>CustomerNo</DataField>
+        </Field>
+        <Field Name="Entry_No_">
+          <DataField>Entry_No_</DataField>
+        </Field>
+        <Field Name="Quantity_ILE">
+          <DataField>Quantity_ILE</DataField>
+        </Field>
+        <Field Name="Lot_No_">
+          <DataField>Lot_No_</DataField>
+        </Field>
+        <Field Name="Item_Desc">
+          <DataField>Item_Desc</DataField>
+        </Field>
+        <Field Name="Item_Description">
+          <DataField>Item_Description</DataField>
+        </Field>
+        <Field Name="TotalQty">
+          <DataField>TotalQty</DataField>
+        </Field>
+        <Field Name="TotalQtyFormat">
+          <DataField>TotalQtyFormat</DataField>
+        </Field>
+        <Field Name="TestNoList">
+          <DataField>TestNoList</DataField>
+        </Field>
+        <Field Name="SpesificationNo">
+          <DataField>SpesificationNo</DataField>
         </Field>
         <Field Name="Standard1">
           <DataField>Standard1</DataField>
@@ -6164,21 +5925,6 @@ JFtGPB5HKBTigkQsFoPX68XKygoGBgbQ39+P6elpzM7Owu/381wuEKo0kyCjVqt5KDPlYCGTlIKFOofD
         <Field Name="Standard9">
           <DataField>Standard9</DataField>
         </Field>
-        <Field Name="Standard10">
-          <DataField>Standard10</DataField>
-        </Field>
-        <Field Name="Standard11">
-          <DataField>Standard11</DataField>
-        </Field>
-        <Field Name="Standard12">
-          <DataField>Standard12</DataField>
-        </Field>
-        <Field Name="Standard13">
-          <DataField>Standard13</DataField>
-        </Field>
-        <Field Name="Standard14">
-          <DataField>Standard14</DataField>
-        </Field>
         <Field Name="DrawingNo">
           <DataField>DrawingNo</DataField>
         </Field>
@@ -6199,39 +5945,6 @@ JFtGPB5HKBTigkQsFoPX68XKygoGBgbQ39+P6elpzM7Owu/381wuEKo0kyCjVqt5KDPlYCGTlIKFOofD
         </Field>
         <Field Name="Description">
           <DataField>Description</DataField>
-        </Field>
-        <Field Name="Posting_Date">
-          <DataField>Posting_Date</DataField>
-        </Field>
-        <Field Name="Quantity_ILE">
-          <DataField>Quantity_ILE</DataField>
-        </Field>
-        <Field Name="Quantity_ILEFormat">
-          <DataField>Quantity_ILEFormat</DataField>
-        </Field>
-        <Field Name="Expiration_Date">
-          <DataField>Expiration_Date</DataField>
-        </Field>
-        <Field Name="TestNoList">
-          <DataField>TestNoList</DataField>
-        </Field>
-        <Field Name="Document_No_">
-          <DataField>Document_No_</DataField>
-        </Field>
-        <Field Name="Item_Desc">
-          <DataField>Item_Desc</DataField>
-        </Field>
-        <Field Name="TotalQty">
-          <DataField>TotalQty</DataField>
-        </Field>
-        <Field Name="TotalQtyFormat">
-          <DataField>TotalQtyFormat</DataField>
-        </Field>
-        <Field Name="Lot_No_">
-          <DataField>Lot_No_</DataField>
-        </Field>
-        <Field Name="Item_Description">
-          <DataField>Item_Description</DataField>
         </Field>
         <Field Name="Qty_at_Test_Time">
           <DataField>Qty_at_Test_Time</DataField>
@@ -6334,21 +6047,6 @@ JFtGPB5HKBTigkQsFoPX68XKygoGBgbQ39+P6elpzM7Owu/381wuEKo0kyCjVqt5KDPlYCGTlIKFOofD
         </Field>
         <Field Name="Display19">
           <DataField>Display19</DataField>
-        </Field>
-        <Field Name="Display20">
-          <DataField>Display20</DataField>
-        </Field>
-        <Field Name="Display21">
-          <DataField>Display21</DataField>
-        </Field>
-        <Field Name="Display22">
-          <DataField>Display22</DataField>
-        </Field>
-        <Field Name="Display23">
-          <DataField>Display23</DataField>
-        </Field>
-        <Field Name="Display24">
-          <DataField>Display24</DataField>
         </Field>
         <Field Name="MantleValue">
           <DataField>MantleValue</DataField>

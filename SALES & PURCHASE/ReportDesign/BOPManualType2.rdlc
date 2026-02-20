@@ -6110,14 +6110,8 @@ JFtGPB5HKBTigkQsFoPX68XKygoGBgbQ39+P6elpzM7Owu/381wuEKo0kyCjVqt5KDPlYCGTlIKFOofD
   <DataSets>
     <DataSet Name="DataSet_Result">
       <Fields>
-        <Field Name="Entry_No_">
-          <DataField>Entry_No_</DataField>
-        </Field>
-        <Field Name="Package_No_">
-          <DataField>Package_No_</DataField>
-        </Field>
-        <Field Name="glbCustomer">
-          <DataField>glbCustomer</DataField>
+        <Field Name="Document_No_">
+          <DataField>Document_No_</DataField>
         </Field>
         <Field Name="CustomerName">
           <DataField>CustomerName</DataField>
@@ -6125,17 +6119,47 @@ JFtGPB5HKBTigkQsFoPX68XKygoGBgbQ39+P6elpzM7Owu/381wuEKo0kyCjVqt5KDPlYCGTlIKFOofD
         <Field Name="CustomerPoNo_">
           <DataField>CustomerPoNo_</DataField>
         </Field>
-        <Field Name="CustomerNo">
-          <DataField>CustomerNo</DataField>
-        </Field>
-        <Field Name="SpesificationNo">
-          <DataField>SpesificationNo</DataField>
-        </Field>
         <Field Name="Status1">
           <DataField>Status1</DataField>
         </Field>
         <Field Name="ApprovalDate">
           <DataField>ApprovalDate</DataField>
+        </Field>
+        <Field Name="Posting_Date">
+          <DataField>Posting_Date</DataField>
+        </Field>
+        <Field Name="glbCustomer">
+          <DataField>glbCustomer</DataField>
+        </Field>
+        <Field Name="CustomerNo">
+          <DataField>CustomerNo</DataField>
+        </Field>
+        <Field Name="Entry_No_">
+          <DataField>Entry_No_</DataField>
+        </Field>
+        <Field Name="Quantity_ILE">
+          <DataField>Quantity_ILE</DataField>
+        </Field>
+        <Field Name="Lot_No_">
+          <DataField>Lot_No_</DataField>
+        </Field>
+        <Field Name="Item_Desc">
+          <DataField>Item_Desc</DataField>
+        </Field>
+        <Field Name="Item_Description">
+          <DataField>Item_Description</DataField>
+        </Field>
+        <Field Name="TotalQty">
+          <DataField>TotalQty</DataField>
+        </Field>
+        <Field Name="TotalQtyFormat">
+          <DataField>TotalQtyFormat</DataField>
+        </Field>
+        <Field Name="TestNoList">
+          <DataField>TestNoList</DataField>
+        </Field>
+        <Field Name="SpesificationNo">
+          <DataField>SpesificationNo</DataField>
         </Field>
         <Field Name="Standard1">
           <DataField>Standard1</DataField>
@@ -6199,39 +6223,6 @@ JFtGPB5HKBTigkQsFoPX68XKygoGBgbQ39+P6elpzM7Owu/381wuEKo0kyCjVqt5KDPlYCGTlIKFOofD
         </Field>
         <Field Name="Description">
           <DataField>Description</DataField>
-        </Field>
-        <Field Name="Posting_Date">
-          <DataField>Posting_Date</DataField>
-        </Field>
-        <Field Name="Quantity_ILE">
-          <DataField>Quantity_ILE</DataField>
-        </Field>
-        <Field Name="Quantity_ILEFormat">
-          <DataField>Quantity_ILEFormat</DataField>
-        </Field>
-        <Field Name="Expiration_Date">
-          <DataField>Expiration_Date</DataField>
-        </Field>
-        <Field Name="TestNoList">
-          <DataField>TestNoList</DataField>
-        </Field>
-        <Field Name="Document_No_">
-          <DataField>Document_No_</DataField>
-        </Field>
-        <Field Name="Item_Desc">
-          <DataField>Item_Desc</DataField>
-        </Field>
-        <Field Name="TotalQty">
-          <DataField>TotalQty</DataField>
-        </Field>
-        <Field Name="TotalQtyFormat">
-          <DataField>TotalQtyFormat</DataField>
-        </Field>
-        <Field Name="Lot_No_">
-          <DataField>Lot_No_</DataField>
-        </Field>
-        <Field Name="Item_Description">
-          <DataField>Item_Description</DataField>
         </Field>
         <Field Name="Qty_at_Test_Time">
           <DataField>Qty_at_Test_Time</DataField>
