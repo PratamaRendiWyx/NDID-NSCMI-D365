@@ -82,6 +82,10 @@ table 51103 "Inventory Aging Temp FT"
         {
             Caption = 'Date Doc. Reff';
         }
+        field(20; "Is Tracking Code (?)"; Boolean)
+        {
+            Caption = 'Is Tracking Code (?)';
+        }
     }
     keys
     {

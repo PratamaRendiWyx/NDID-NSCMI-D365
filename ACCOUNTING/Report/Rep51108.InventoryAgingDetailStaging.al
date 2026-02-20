@@ -42,6 +42,7 @@ report 51108 "Inventory Aging Detail Stag."
             column(Orig_Doc__No; "Orig Doc. No") { }
             column(Item_Ledger_Entry_No_; "Item Ledger Entry No.") { }
             column(Inbound_Entry_No_; "Inbound Entry No.") { }
+            column(Is_Tracking; "Is Tracking Code (?)") { }
 
             trigger OnPreDataItem()
             var

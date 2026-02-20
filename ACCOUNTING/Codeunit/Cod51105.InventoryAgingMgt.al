@@ -127,7 +127,7 @@ codeunit 51105 "Inventory Aging Mgt."
             Items.SetFilter(Inventory, '<>0');
             if Items.FindSet() then begin
                 //insert aging
-                InsertInvtAging(Items."No.", '');
+                InsertInvtAgingNonTracking(Items."No.", '');
             end;
         end;
     end;
@@ -167,6 +167,95 @@ codeunit 51105 "Inventory Aging Mgt."
                         Clear(ILE1);
                         ILE1.Reset();
                         ILE1.SetRange("Entry No.", InboundOrig);
+                        ILE1.SetCurrentKey("Posting Date");
+                        if ILE1.FindSet() then begin
+                            RowID := CreateGuid();
+                            InventoryAging.GuidID := RowID;
+                            if CheckPrefix(ILE1."Document No.", 'BINV') then
+                                InventoryAging."Posting Date" := ILE1."Document Date"
+                            else
+                                InventoryAging."Posting Date" := ILE1."Posting Date";
+                            InventoryAging."Document No." := ILE1."Document No.";
+                            InventoryAging.ItemNo_ := ILE1."Item No.";
+                            Clear(Items);
+                            Items.Get(ILE1."Item No.");
+                            InventoryAging.Description := Items.Description;
+                            InventoryAging.Balance := itemApplicationEntry.Quantity;
+                            InventoryAging."Lot No" := ILE."Lot No.";
+                            InventoryAging.Type := Format(ILE1."Entry Type");
+
+                            //Init
+                            InventoryAging.Aging1 := 0;
+                            InventoryAging.Aging2 := 0;
+                            InventoryAging.Aging3 := 0;
+                            InventoryAging.Aging4 := 0;
+                            InventoryAging.Aging5 := 0;
+                            Clear(InventoryAging."Date Doc. Reff");
+                            Clear(InventoryAging."Document Reff No.");
+                            Clear(InventoryAging."Date Doc. Reff");
+                            //-end of init
+
+                            //Check Aging 
+                            Clear(AgingInt);
+                            AgingInt := CalculateDaysBetweenDates(InventoryAging."Posting Date", v_asofDate);
+                            if AgingInt <= 90 then
+                                InventoryAging.Aging1 := itemApplicationEntry.Quantity;
+                            if (AgingInt > 90) AND (AgingInt <= 180) then
+                                InventoryAging.Aging2 := itemApplicationEntry.Quantity;
+                            if (AgingInt > 180) AND (AgingInt <= 270) then
+                                InventoryAging.Aging3 := itemApplicationEntry.Quantity;
+                            if (AgingInt > 270) AND (AgingInt <= 360) then
+                                InventoryAging.Aging4 := itemApplicationEntry.Quantity;
+                            if AgingInt > 360 then
+                                InventoryAging.Aging5 := itemApplicationEntry.Quantity;
+                            InventoryAging.InventoryPostingGroup := Items."Inventory Posting Group";
+                            InventoryAging."Orig Doc. No" := ILE."Document No.";
+                            InventoryAging."Item Ledger Entry No." := ILE."Entry No.";
+                            InventoryAging."Inbound Entry No." := ILE1."Entry No.";
+                            InventoryAging.Insert();
+                        end;
+                    until itemApplicationEntry.Next() = 0;
+                end;
+            until ILE.Next() = 0;
+        end;
+    end;
+
+
+    local procedure InsertInvtAgingNonTracking(iItemNo: Code[20]; iLotNo: Code[50])
+    var
+        ILE: Record "Item Ledger Entry";
+        ILE1: Record "Item Ledger Entry";
+        itemApplicationEntry: Record "Item Application Entry";
+        itemApplicationEntry2: Record "Item Application Entry"; // for data correction, check inbound from outbound entry
+        InboundOrig: Integer;
+        InventoryAging: Record "Inventory Aging";
+        Items: Record Item;
+        AgingInt: Integer;
+    begin
+        Clear(RowID);
+        Clear(InventoryAging);
+        InventoryAging.Init();
+
+        //check detail per item | lot
+        Clear(ILE);
+        ILE.SetFilter("Item No.", iItemNo);
+        ILE.SetFilter("Posting Date", '<=%1', v_asofDate);
+        if iLotNo <> '' then
+            ILE.SetRange("Lot No.", iLotNo);
+        ILE.SetCurrentKey("Item No.", "Posting Date", "Entry Type", "Document No.", "Lot No.", "Document Type", Quantity, "Entry No.");
+        if ILE.FindSet() then begin
+            repeat
+                //check inbound or date receive 
+                Clear(itemApplicationEntry);
+                itemApplicationEntry.Reset();
+                itemApplicationEntry.SetRange("Item Ledger Entry No.", ILE."Entry No.");
+                if itemApplicationEntry.FindSet() then begin
+                    repeat
+                        InboundOrig := itemApplicationEntry."Inbound Item Entry No."; //findInbonOrig(ILE."Item No.", ILE."Lot No.");
+                        Clear(ILE1);
+                        ILE1.Reset();
+                        ILE1.SetRange("Entry No.", InboundOrig);
+                        // ILE1.SetFilter("Entry Type", '%1|%2', ILE1."Entry Type"::"Positive Adjmt.", ILE1."Entry Type"::Purchase);
                         ILE1.SetCurrentKey("Posting Date");
                         if ILE1.FindSet() then begin
                             RowID := CreateGuid();

@@ -10,5 +10,9 @@ tableextension 50521 "Registered Whse. Activity Hdr." extends "Registered Whse. 
         {
             Editable = false;
         }
+        field(50305; "Posting Date"; Date)
+        {
+            Caption = 'Posting Date';
+        }
     }
 }

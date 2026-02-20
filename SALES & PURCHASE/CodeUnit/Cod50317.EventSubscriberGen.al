@@ -74,6 +74,14 @@ codeunit 50317 "Event Subscriber Gen."
         end;
     end;
 
+    // QCFunctionLibrary_PQ
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::QCFunctionLibrary_PQ, OnCreateLotOrSerialNoInformation, '', false, false)]
+    local procedure OnCreateLotOrSerialNoInformation(var LotInformation: Record "Lot No. Information"; var ItemLedgEntry: Record "Item Ledger Entry")
+    begin
+        if ItemLedgEntry."Entry Type" = ItemLedgEntry."Entry Type"::Output then begin
+            LotInformation."USDFS Code" := ItemLedgEntry."USDFS Code";
+        end;
+    end;
 
     [EventSubscriber(ObjectType::Table, Database::"Phys. Invt. Order Line", OnCalcQtyAndTrackLinesExpectedOnAfterDeleteLineWhseEntry2, '', false, false)]
     local procedure OnCalcQtyAndTrackLinesExpectedOnAfterDeleteLineWhseEntry2(var ExpInvtOrderTracking: Record "Exp. Invt. Order Tracking"; var PhysInvtOrderLine: Record "Phys. Invt. Order Line")

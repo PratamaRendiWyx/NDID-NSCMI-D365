@@ -1,4 +1,4 @@
-codeunit 51112 "Inventory Aging SMB"
+codeunit 51118 "Inventory Aging SPB"
 {
     trigger OnRun()
     var
@@ -7,29 +7,21 @@ codeunit 51112 "Inventory Aging SMB"
         lastdate: Date;
         Ok: Boolean;
         SessionId: Integer;
-        InvtAgingSPB: Codeunit "Inventory Aging SPB";
     begin
         // LastDate := CALCDATE('CM', Today());
         begin
             Clear(InventoryAgingMgt);
             Clear(item);
             LastDate := InventoryAgingMgt.getAsOfDate();
-            InventoryAgingMgt.insertLog(LastDate, 7, 'Start Process Invt. Aging - SMB');
+            InventoryAgingMgt.insertLog(LastDate, 7, 'Start Process Invt. Aging - SPB');
             item.Reset();
-            item.SetFilter("No.", 'SMB*');
+            item.SetFilter("No.", 'SPB*');
             if item.FindSet() then begin
                 repeat
                     InventoryAgingMgt.CollectInvtAgingData(lastdate, item."No.");
                 until item.Next() = 0;
             end;
-            InventoryAgingMgt.insertLog(LastDate, 7, 'End Process Invt. Aging - SMB');
-            //Continue run SPB
-            Clear(InvtAgingSPB);
-            InvtAgingSPB.Run();
-            //Continue run FSB-2
-            Clear(SessionId);
-            Ok := StartSession(SessionId, Codeunit::"Inventory Aging FSB-2");
-            //-
+            InventoryAgingMgt.insertLog(LastDate, 7, 'End Process Invt. Aging - SPB');
         end;
     end;
 

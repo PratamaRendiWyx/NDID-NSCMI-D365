@@ -140,7 +140,7 @@ page 50125 SalesBPChart_FT
                 trigger OnAction()
                 begin
                     ChartManagement.UpdateChart(SelectedChartDefinition, BusinessChartBuffer, Period::Previous);
-                    BusinessChartBuffer.UpdateChart(CurrPage.BusinessChart);
+                    // BusinessChartBuffer.UpdateChart(CurrPage.BusinessChart);
                 end;
             }
             action(NextPeriod)
@@ -154,7 +154,7 @@ page 50125 SalesBPChart_FT
                 trigger OnAction()
                 begin
                     ChartManagement.UpdateChart(SelectedChartDefinition, BusinessChartBuffer, Period::Next);
-                    BusinessChartBuffer.UpdateChart(CurrPage.BusinessChart);
+                    // BusinessChartBuffer.UpdateChart(CurrPage.BusinessChart);
                 end;
             }
             action(ChartInformation)
@@ -225,7 +225,7 @@ page 50125 SalesBPChart_FT
     begin
         if not IsChartAddInReady then
             exit;
-        BusinessChartBuffer.UpdateChart(CurrPage.BusinessChart);
+        // BusinessChartBuffer.UpdateChart(CurrPage.BusinessChart);
     end;
 }
 

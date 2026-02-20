@@ -43,6 +43,10 @@ report 51104 "Inventory Aging Detail"
             column(Orig_Doc__No; "Orig Doc. No") { }
             column(Item_Ledger_Entry_No_; "Item Ledger Entry No.") { }
             column(Inbound_Entry_No_; "Inbound Entry No.") { }
+            column(Is_Tracking; "Is Tracking Code (?)")
+            {
+
+            }
         }
     }
     requestpage
@@ -156,7 +160,7 @@ report 51104 "Inventory Aging Detail"
             Items.SetFilter(Inventory, '<>0');
             if Items.FindSet() then begin
                 //insert aging
-                InsertInvtAging(Items."No.", '');
+                insertinvtagingNonTracking(Items."No.", '');
             end;
         end;
     end;
@@ -238,6 +242,7 @@ report 51104 "Inventory Aging Detail"
                             InventoryAgingTempFT."Orig Doc. No" := ILE."Document No.";
                             InventoryAgingTempFT."Item Ledger Entry No." := ILE."Entry No.";
                             InventoryAgingTempFT."Inbound Entry No." := ILE1."Entry No.";
+                            InventoryAgingTempFT."Is Tracking Code (?)" := true;
                             InventoryAgingTempFT.Insert();
                         end;
                     until itemApplicationEntry.Next() = 0;
@@ -245,6 +250,95 @@ report 51104 "Inventory Aging Detail"
             until ILE.Next() = 0;
         end;
     end;
+
+
+    local procedure insertinvtagingNonTracking(iItemNo: Code[20]; iLotNo: Code[50])
+    var
+        ILE: Record "Item Ledger Entry";
+        ILE1: Record "Item Ledger Entry";
+        itemApplicationEntry: Record "Item Application Entry";
+        itemApplicationEntry2: Record "Item Application Entry"; // for data correction, check inbound from outbound entry
+        InboundOrig: Integer;
+        InventoryAging: Record "Inventory Aging";
+        Items: Record Item;
+        AgingInt: Integer;
+    begin
+        //check detail per item | lot
+        Clear(ILE);
+        ILE.Reset();
+        ILE.SetFilter("Posting Date", '<=%1', v_asofDate);
+        ILE.SetRange("Item No.", iItemNo);
+        if iLotNo <> '' then
+            ILE.SetRange("Lot No.", iLotNo);
+        ILE.SetCurrentKey("Item No.", "Posting Date", "Entry Type", "Document No.", "Lot No.", "Document Type", Quantity, "Entry No.");
+        if ILE.FindSet() then begin
+            repeat
+                //check inbound or date receive 
+                Clear(itemApplicationEntry);
+                itemApplicationEntry.Reset();
+                itemApplicationEntry.SetRange("Item Ledger Entry No.", ILE."Entry No.");
+                if itemApplicationEntry.FindSet() then begin
+                    repeat
+                        Clear(InboundOrig);
+                        InboundOrig := itemApplicationEntry."Inbound Item Entry No."; //findInbonOrig(ILE."Item No.", ILE."Lot No.");
+                        Clear(ILE1);
+                        ILE1.Reset();
+                        ILE1.SetRange("Entry No.", InboundOrig);
+                        //ILE1.SetFilter("Entry Type", '%1|%2', ILE1."Entry Type"::"Positive Adjmt.", ILE1."Entry Type"::Purchase);
+                        ILE1.SetCurrentKey("Posting Date");
+                        if ILE1.FindSet() then begin
+                            RowID := RowID + 1;
+                            InventoryAgingTempFT.RowID := RowID;
+                            if CheckPrefix(ILE1."Document No.", 'BINV') then
+                                InventoryAgingTempFT."Posting Date" := ILE1."Document Date"
+                            else
+                                InventoryAgingTempFT."Posting Date" := ILE1."Posting Date";
+                            InventoryAgingTempFT."Document No." := ILE1."Document No.";
+                            InventoryAgingTempFT.ItemNo_ := ILE1."Item No.";
+                            Clear(Items);
+                            Items.Get(ILE1."Item No.");
+                            InventoryAgingTempFT.Description := Items.Description;
+                            InventoryAgingTempFT.Balance := itemApplicationEntry.Quantity;
+                            InventoryAgingTempFT."Lot No" := ILE."Lot No.";
+                            InventoryAgingTempFT.Type := Format(ILE1."Entry Type");
+
+                            //Init
+                            InventoryAgingTempFT.Aging1 := 0;
+                            InventoryAgingTempFT.Aging2 := 0;
+                            InventoryAgingTempFT.Aging3 := 0;
+                            InventoryAgingTempFT.Aging4 := 0;
+                            InventoryAgingTempFT.Aging5 := 0;
+                            Clear(InventoryAgingTempFT."Date Doc. Reff");
+                            Clear(InventoryAgingTempFT."Document Reff No.");
+                            Clear(InventoryAgingTempFT."Date Doc. Reff");
+                            //-end of init
+
+                            //Check Aging 
+                            Clear(AgingInt);
+                            AgingInt := CalculateDaysBetweenDates(InventoryAgingTempFT."Posting Date", v_asofDate);
+                            if AgingInt <= 90 then
+                                InventoryAgingTempFT.Aging1 := itemApplicationEntry.Quantity;
+                            if (AgingInt > 90) AND (AgingInt <= 180) then
+                                InventoryAgingTempFT.Aging2 := itemApplicationEntry.Quantity;
+                            if (AgingInt > 180) AND (AgingInt <= 270) then
+                                InventoryAgingTempFT.Aging3 := itemApplicationEntry.Quantity;
+                            if (AgingInt > 270) AND (AgingInt <= 360) then
+                                InventoryAgingTempFT.Aging4 := itemApplicationEntry.Quantity;
+                            if AgingInt > 360 then
+                                InventoryAgingTempFT.Aging5 := itemApplicationEntry.Quantity;
+                            InventoryAgingTempFT.InventoryPostingGroup := Items."Inventory Posting Group";
+                            InventoryAgingTempFT."Orig Doc. No" := ILE."Document No.";
+                            InventoryAgingTempFT."Item Ledger Entry No." := ILE."Entry No.";
+                            InventoryAgingTempFT."Inbound Entry No." := ILE1."Entry No.";
+                            InventoryAgingTempFT."Is Tracking Code (?)" := false;
+                            InventoryAgingTempFT.Insert();
+                        end;
+                    until itemApplicationEntry.Next() = 0;
+                end;
+            until ILE.Next() = 0;
+        end;
+    end;
+
 
     procedure CheckPrefix(myString: Text; prefix: Text): Boolean
     begin

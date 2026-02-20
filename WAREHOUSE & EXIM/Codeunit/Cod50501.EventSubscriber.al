@@ -106,6 +106,7 @@ codeunit 50501 "Event Subscriber"
     begin
         RegisteredWhseActivityHdr.Operator := WarehouseActivityHeader.Operator;
         RegisteredWhseActivityHdr."Operator Name" := WarehouseActivityHeader."Operator Name";
+        RegisteredWhseActivityHdr."Posting Date" := WarehouseActivityHeader."Posting Date";
     end;
     //-
 

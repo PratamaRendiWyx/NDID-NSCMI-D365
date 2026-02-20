@@ -18,7 +18,7 @@ pageextension 50357 PostedItemTrackingLines_PQ extends "Posted Item Tracking Lin
             }
             action("PrintCertofAnalysis")
             {
-                Caption = '&Print BOP';
+                Caption = '&Print BOP (Single)';
                 Image = Print;
                 Promoted = true;
                 PromotedCategory = Report;
@@ -63,10 +63,9 @@ pageextension 50357 PostedItemTrackingLines_PQ extends "Posted Item Tracking Lin
                     end;
                 end;
             }
-
-            action("PrintCertofAnalysis Multiple")
+            action("PrintCertofAnalysis2")
             {
-                Caption = '&Print BOP Multiple';
+                Caption = '&Print BOP (Multiple)';
                 Image = Print;
                 Promoted = true;
                 PromotedCategory = Report;

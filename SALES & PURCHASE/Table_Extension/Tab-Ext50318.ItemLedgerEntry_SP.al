@@ -19,4 +19,17 @@ tableextension 50318 ItemLedgerEntry_SP extends "Item Ledger Entry"
             Editable = false;
         }
     }
+
+    trigger OnInsert()
+    var
+        myInt: Integer;
+        LotInformation: Record "Lot No. Information";
+    begin
+        if "USDFS Code" = '' then begin
+            LotInformation.SetRange("Lot No.", "Lot No.");
+            LotInformation.SetRange("Item No.", "Item No.");
+            if LotInformation.FindFirst() then
+                Rec."USDFS Code" := LotInformation."USDFS Code";
+        end;
+    end;
 }

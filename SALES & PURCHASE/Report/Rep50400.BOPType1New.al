@@ -11,11 +11,13 @@ report 50400 "BOP Type 1 New"
         {
             DataItemTableView = sorting("Entry No.");
             RequestFilterFields = "Document No.", "Document Line No.", "Item No.";
+            column(Entry_No_; "Entry No.") { }
             column(Package_No_; "Package No.")
             {
 
             }
-            column(glbCustomer; Format(glbCustomer)) { }
+            // column(glbCustomer; Format(glbCustomer)) { }
+            column(glbCustomer; getCustomerName(glbShipmentHeader."Sell-to Customer No.", glbShipmentHeader."Sell-to Customer Name")) { }
             column(CustomerName; glbShipmentHeader."Sell-to Customer Name") { }
             column(CustomerPoNo_; glbShipmentHeader."External Document No.") { }
             column(Status1; format(glbShipmentLines."Status Approval")) { }
@@ -79,7 +81,7 @@ report 50400 "BOP Type 1 New"
                 {
                     DataItemLink = "Test No." = field("Test No.");
                     DataItemLinkReference = QualityTestHeader_PQ;
-                    DataItemTableView = sorting("Test No.", "Line No.");
+                    // DataItemTableView = sorting("Test No.", "Line No.");
                     column(Sampling_to; "Sampling to") { }
                     column(Display1; getValueQT(QualityTestHeader_PQ."Test No.", QualityTestLines_PQ."Sampling to", 1)) { }
                     column(Display2; getValueQT(QualityTestHeader_PQ."Test No.", QualityTestLines_PQ."Sampling to", 2)) { }
@@ -114,8 +116,10 @@ report 50400 "BOP Type 1 New"
                     var
                         myInt: Integer;
                     begin
-                        if glbSampleto = glbSampleto::Single then
-                            SetRange("Sampling to", 1);
+                        SetRange(Display, true);
+                        SetFilter("Sampling to", '>0');
+                        // if glbSampleto = glbSampleto::Single then
+                        //     SetRange("Sampling to", 1);
                     end;
                 }
 
@@ -123,10 +127,19 @@ report 50400 "BOP Type 1 New"
                 var
                     myInt: Integer;
                 begin
+                    if Not (QualityTestHeader_PQ."Test Status" IN [QualityTestHeader_PQ."Test Status"::Certified, QualityTestHeader_PQ."Test Status"::Closed]) then
+                        CurrReport.Skip();
                     if TestNoList = '' then
                         TestNoList := QualityTestHeader_PQ."Test No."
                     else
                         TestNoList += '|' + QualityTestHeader_PQ."Test No.";
+                end;
+
+                trigger OnPreDataItem()
+                var
+                    myInt: Integer;
+                begin
+                    // SetFilter(Status, '%1|%2', Status::Certified, Status::Closed);
                 end;
             }
 
@@ -179,6 +192,7 @@ report 50400 "BOP Type 1 New"
                     {
                         Caption = 'Sample to';
                         ApplicationArea = All;
+                        Visible = false;
                     }
 
                 }
@@ -318,6 +332,14 @@ report 50400 "BOP Type 1 New"
         if Items.Find('-') then
             exit(Items.Description);
         exit('');
+    end;
+
+    local procedure getCustomerName(iCustomerNo: Code[20]; iCustomerName: Text): Text
+    begin
+        if iCustomerNo = 'C0007' then
+            exit(Format(glbCustomer))
+        else
+            exit(iCustomerName);
     end;
 
     var

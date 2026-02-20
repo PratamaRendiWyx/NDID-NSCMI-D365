@@ -2120,7 +2120,7 @@ Fields!Amounttxt.Value + Chr(177) + Fields!Notes.Value + Chr(177) + Format(Field
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>=IIF(Code.GetData(21,1) = "Y", Code.GetData(13,1), Code.GetData(14,1))</Value>
+                          <Value>=Code.GetData(14,1)</Value>
                           <Style>
                             <FontFamily>Calibri</FontFamily>
                             <FontSize>9pt</FontSize>
@@ -2160,7 +2160,7 @@ Fields!Amounttxt.Value + Chr(177) + Fields!Notes.Value + Chr(177) + Format(Field
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>=IIF(Code.GetData(21,1) = "Y", Code.GetData(15,1), Code.GetData(16,1))</Value>
+                          <Value>=Code.GetData(16,1)</Value>
                           <Style>
                             <FontFamily>Calibri</FontFamily>
                             <FontSize>9pt</FontSize>

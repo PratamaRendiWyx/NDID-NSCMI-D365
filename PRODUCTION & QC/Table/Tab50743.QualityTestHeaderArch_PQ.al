@@ -1,4 +1,4 @@
-table 50706 QualityTestHeader_PQ
+table 50743 QualityTestHeaderArch_PQ
 {
     // version QC10.2
 
@@ -65,8 +65,8 @@ table 50706 QualityTestHeader_PQ
 
     Caption = 'Quality Test Header';
     DataCaptionFields = "Test No.", "Item No.", "Lot No.";
-    DrillDownPageID = QCTestList_PQ;
-    LookupPageID = QCTestList_PQ;
+    DrillDownPageID = QCTestListArch_PQ;
+    LookupPageID = QCTestListArch_PQ;
 
     fields
     {
@@ -726,9 +726,6 @@ table 50706 QualityTestHeader_PQ
 
         if QualityFunctions.TestQCMgr then begin
             if (("Test Status" = "Test Status"::Rejected) or ("Test Status" = "Test Status"::Closed)) then begin
-
-                copyObjectsFromOldTest(Rec); //Archive the Test Header, Test Lines, and Comments
-
                 TestLinesT.SETRANGE("Test No.", "Test No.");
                 if TestLinesT.FindSet() then
                     TestLinesT.DELETEALL(true);
@@ -741,48 +738,6 @@ table 50706 QualityTestHeader_PQ
         end else
             ERROR(Text011); //Abort if Not Quality Manager
         //QC71.1 Finish
-    end;
-
-    local procedure copyObjectsFromOldTest(var OldTest: Record QualityTestHeader_PQ)
-    var
-        OldTestLines: Record QualityTestLines_PQ;
-        oldTestComments: Record QCTestHeaderComment_PQ;
-        OldTestCommentsLine: Record QCTestLineComment_PQ;
-        ArchTestLinesCommentLine: Record QCTestLineCommentArch_PQ;
-        ArchTestLines: Record QualityTestLinesArch_PQ;
-        ArchTestHeader: Record QualityTestHeaderArch_PQ;
-        ArchTestHeaderComment: Record QCTestHeaderCommentArch_PQ;
-    begin
-        //Copy Test Lines
-        OldTestLines.SETRANGE("Test No.", OldTest."Test No.");
-        if OldTestLines.FINDSET then begin
-            repeat
-                ArchTestLines.TransferFields(OldTestLines);
-                ArchTestLines.Insert();
-            until OldTestLines.NEXT = 0;
-        end;
-
-        //Copy Test Header Comments
-        oldTestComments.SETRANGE("Test No.", OldTest."Test No.");
-        if oldTestComments.FINDSET then begin
-            repeat
-                ArchTestHeaderComment.TransferFields(oldTestComments);
-                ArchTestHeaderComment.Insert();
-            until oldTestComments.NEXT = 0;
-        end;
-
-        //Copy Test Lines Comments
-        OldTestCommentsLine.SETRANGE("Test No.", OldTest."Test No.");
-        if OldTestCommentsLine.FINDSET then begin
-            repeat
-                ArchTestLinesCommentLine.TransferFields(OldTestCommentsLine);
-                ArchTestLinesCommentLine.Insert();
-            until OldTestCommentsLine.NEXT = 0;
-        end;
-
-        //Copy Test Header
-        ArchTestHeader.TransferFields(OldTest);
-        ArchTestHeader.Insert();
     end;
 
     trigger OnInsert();
@@ -815,7 +770,7 @@ table 50706 QualityTestHeader_PQ
     var
         NoSeriesMgt: Codeunit "No. Series";
         QCSetup: Record QCSetup_PQ;
-        TestT: Record QualityTestHeader_PQ;
+        TestT: Record QualityTestHeaderArch_PQ;
         TestLinesT: Record QualityTestLines_PQ;
         TestHeaderComments: Record QCTestHeaderComment_PQ;
         ItemT: Record Item;
@@ -844,7 +799,7 @@ table 50706 QualityTestHeader_PQ
 
         Text016: Label 'The %1 field cannot be modify if %2 have already been created.', Comment = '%1: Field Caption; %2: Table Caption';
 
-    procedure AssistEdit(OldTest: Record QualityTestHeader_PQ): Boolean;
+    procedure AssistEdit(OldTest: Record QualityTestHeaderArch_PQ): Boolean;
     begin
         with TestT do begin
             TestT := Rec;
@@ -943,7 +898,7 @@ table 50706 QualityTestHeader_PQ
                             TestLinesT.MODIFY(false);
                         until TestLinesT.NEXT = 0;
                     if (NewStatus = "Test Status"::Certified) then
-                        QualityFunctions.UpdateSpecNextTestDates(Rec); //(Possibly) Update the Last Test Date/Next Test Date on the Specification Lines
+                        ;//QualityFunctions.UpdateSpecNextTestDates(Rec); //(Possibly) Update the Last Test Date/Next Test Date on the Specification Lines
                 end;
             end;
             if not OkToChange then begin  //Else, Revert Header to Previous (non-changed) Status (Lines weren't changed to New Status yet)
@@ -953,7 +908,7 @@ table 50706 QualityTestHeader_PQ
         end;
     end;
 
-    procedure CheckStatusRules(TestHeader: Record QualityTestHeader_PQ; NewStatus: Integer) OkToChange: Boolean;
+    procedure CheckStatusRules(TestHeader: Record QualityTestHeaderArch_PQ; NewStatus: Integer) OkToChange: Boolean;
     var
         TempTestLines: Record QualityTestLines_PQ;
         UserIsQCMgr: Boolean;
@@ -1090,7 +1045,7 @@ table 50706 QualityTestHeader_PQ
 
     /*procedure HandleCertifiedFinal() Changed: Boolean;
     var
-        TempHeader: Record QualityTestHeader_PQ;
+        TempHeader: Record QualityTestHeaderArch_PQ;
         TempLines: Record QualityTestLines_PQ;
     begin
         //QC71.1 Function Added
@@ -1125,7 +1080,7 @@ table 50706 QualityTestHeader_PQ
     end;
     */
 
-    procedure CreateStatusComment(TempTestHeader: Record QualityTestHeader_PQ; ChangedStatus: Integer);
+    procedure CreateStatusComment(TempTestHeader: Record QualityTestHeaderArch_PQ; ChangedStatus: Integer);
     var
         UserT: Record User;
         HeaderCommentT: Record QCTestHeaderComment_PQ;
@@ -1133,7 +1088,7 @@ table 50706 QualityTestHeader_PQ
         StatusText: Text;
         LineNo: Integer;
         CmtText001: Label 'User %1 Changed the Test Status to %2';
-        DummyTestHeader: Record QualityTestHeader_PQ temporary;
+        DummyTestHeader: Record QualityTestHeaderArch_PQ temporary;
     begin
         //QC7.4 Function Added - Create Test Header Comment when "Test Status" is Changed
 
@@ -1240,7 +1195,7 @@ table 50706 QualityTestHeader_PQ
         //Check to see if CoA should be Allowed
 
         CoAAvailable := false;
-        QCStatusRuleResult := QCStatusRules.CheckCoAAvail(Rec); //This is the actual Option Text Returned
+        //QCStatusRuleResult := QCStatusRules.CheckCoAAvail(Rec); //This is the actual Option Text Returned
         CoAAvailable := ((QCStatusRuleResult = 'Yes') or (QCStatusRuleResult = 'Confirm')); //This will enable the Action button
         exit(CoAAvailable);
     end;
